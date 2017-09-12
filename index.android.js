@@ -17,13 +17,15 @@ import Camera from './src/BadInstagramCloneApp';
 import Animations from './src/AnimationsPage';
 import CarouselExample from './src/CarouselExample';
 import StyledComponentsPage from './src/StyledComponentsPage';
+import GlamorousPage from './src/GlamorousPage';
 
 const AppNav = StackNavigator({
     Home: {screen: AppIndex},
     Camera: {screen: Camera},
     Animation: {screen: Animations},
     Carousel: {screen: CarouselExample},
-    StyledComponentsPage:{screen:StyledComponentsPage}
+    StyledComponentsPage: {screen: StyledComponentsPage},
+    GlamorousPage:{screen:GlamorousPage}
 }, {
     navigationOptions: {
         header: null,

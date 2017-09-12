@@ -183,6 +183,10 @@ export default class app extends Component {
         this.props.navigation.navigate('StyledComponentsPage');
     };
 
+    _GlamorousExample=()=>{
+        this.props.navigation.navigate('GlamorousPage');
+    }
+
     _toCarouselPage = () => {
         this.props.navigation.navigate('Carousel');
     }
@@ -222,6 +226,12 @@ export default class app extends Component {
                             </View>
 
 
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='GlamorousExample'
+                                    onPress={this._GlamorousExample}
+                                />
+                            </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
                                     title='StyledComponentsExample'
