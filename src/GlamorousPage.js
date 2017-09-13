@@ -10,7 +10,7 @@ const InstructionText = glamorous.text({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
-})
+});
 
 export default class GlamorousPage extends Component{
     render(){
