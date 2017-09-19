@@ -16,6 +16,7 @@ import java.util.List;
  */
 
 public class CustomPackage implements ReactPackage {
+    ArrayList mArrayList;
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {

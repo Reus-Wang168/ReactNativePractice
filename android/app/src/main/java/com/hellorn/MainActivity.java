@@ -2,12 +2,14 @@ package com.hellorn;
 
 import android.content.Intent;
 import android.view.ViewManager;
+import android.widget.TextView;
 
 import com.facebook.react.ReactActivity;
 
 public class MainActivity extends ReactActivity {
 
     ViewManager mViewManager;
+    TextView mTextView;
 
     @Override
     public void startActivity(Intent intent) {

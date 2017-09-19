@@ -18,6 +18,9 @@ import Animations from './src/AnimationsPage';
 import CarouselExample from './src/CarouselExample';
 import StyledComponentsPage from './src/StyledComponentsPage';
 import GlamorousPage from './src/GlamorousPage';
+import ExamplePage from './src/common/example';
+import ExamplePage2 from './src/common/example2';
+import StyleProject from './src/wxbPage';
 
 const AppNav = StackNavigator({
     Home: {screen: AppIndex},
@@ -25,8 +28,12 @@ const AppNav = StackNavigator({
     Animation: {screen: Animations},
     Carousel: {screen: CarouselExample},
     StyledComponentsPage: {screen: StyledComponentsPage},
-    GlamorousPage:{screen:GlamorousPage}
+    GlamorousPage: {screen: GlamorousPage},
+    ExamplePage: {screen: ExamplePage},
+    ExamplePage2: {screen: ExamplePage2},
+    StyleProject: {screen: StyleProject},
 }, {
+    initialRouteName: 'Home',
     navigationOptions: {
         header: null,
     }

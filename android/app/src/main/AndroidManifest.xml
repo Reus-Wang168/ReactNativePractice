@@ -27,6 +27,8 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <activity android:name=".custom.params.SecondActivity">
+        </activity>
     </application>
 
 </manifest>

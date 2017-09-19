@@ -175,6 +175,8 @@ export default class app extends Component {
         this.props.navigation.navigate('Camera');
     };
 
+
+
     _toAnimationsPage = () => {
         this.props.navigation.navigate('Animation');
     };
@@ -185,11 +187,22 @@ export default class app extends Component {
 
     _GlamorousExample=()=>{
         this.props.navigation.navigate('GlamorousPage');
+    };
+
+    _GlamorousThemeExample=()=>{
+        this.props.navigation.navigate('ExamplePage');
+    };
+    _GlamorousThemeExample2=()=>{
+        this.props.navigation.navigate('ExamplePage2');
+    };
+
+    _GlamorousThemeExample3=()=>{
+        this.props.navigation.navigate('StyleProject');
     }
 
     _toCarouselPage = () => {
         this.props.navigation.navigate('Carousel');
-    }
+    };
 
     render() {
         return (
@@ -226,12 +239,35 @@ export default class app extends Component {
                             </View>
 
 
+
+
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
                                     title='GlamorousExample'
                                     onPress={this._GlamorousExample}
                                 />
                             </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='GlamorousThemeExamle'
+                                    onPress={this._GlamorousThemeExample}
+                                />
+                            </View>
+
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='GlamorousThemeExamle2'
+                                    onPress={this._GlamorousThemeExample2}
+                                />
+                            </View>
+
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='GlamorousThemeExamle2'
+                                    onPress={this._GlamorousThemeExample3}
+                                />
+                            </View>
+
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
                                     title='StyledComponentsExample'
