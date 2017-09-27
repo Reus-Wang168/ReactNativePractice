@@ -1,5 +1,7 @@
 package com.hellorn.custom;
 
+import com.facebook.react.ReactInstanceManager;
+import com.facebook.react.ReactInstancePackage;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -17,6 +19,11 @@ import java.util.List;
 
 public class CustomPackage implements ReactPackage {
     ArrayList mArrayList;
+
+
+    ReactInstancePackage mReactInstancePackage;
+    ReactInstanceManager mReactInstanceManager;
+
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {

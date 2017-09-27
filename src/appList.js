@@ -6,6 +6,7 @@ import {
     StyleSheet,
     Text,
     View,
+    ToastAndroid,
     ActivityIndicator,
     ListView,
 } from 'react-native';
@@ -142,6 +143,10 @@ export default class appList extends Component {
                 list: this.state.list.cloneWithRows(this.dataSource)
             });
         }, 1000);
+    }
+
+    _loadMore=()=>{
+        ToastAndroid.show("more", ToastAndroid.SHORT);
     }
 
 }

@@ -160,7 +160,8 @@ export default class AppIndex extends Component {
             <View style={styles.container1}>
 
                 <StatusBar
-                    hidden={true}
+                    hidden={false}
+                    backgroundColor={'black'}
                 />
 
 

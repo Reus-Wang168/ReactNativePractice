@@ -11,7 +11,8 @@ class AnimView extends Component {
         super(props);
         this.state = {
             fadeAnim: new Animated.Value(0),          // 透明度初始值设为0
-            scalAnim: new Animated.Value(0),
+            scaleAnim: new Animated.Value(1),
+            colorAnim: 'red',
         };
     }
 
@@ -21,10 +22,13 @@ class AnimView extends Component {
             {
                 toValue: 1,                             // 透明度最终变为1，即完全不透明
             },
-            this.state.scalAnim,
+            this.state.scaleAnim,
             {
-                toValue: 10,
-            }
+                toValue: 100,
+            },
+            this.state.colorAnim, {
+                toValue: 'green'
+            },
         ).start();                                  // 开始执行动画
     }
 
@@ -36,7 +40,8 @@ class AnimView extends Component {
                 style={{
                     ...this.props.style,
                     opacity: this.state.fadeAnim, // 将透明度指定为动画变量值
-                    marginTop: this.state.scalAnim * 10,
+                    marginTop: this.state.scaleAnim,
+                    backgroundColor: this.state.colorAnim,
                 }}
             >
                 {this.props.children}
@@ -50,7 +55,7 @@ export default class AnimationsPage extends Component {
     render() {
         return (
             <View ref="anims" style={{flex: 1, backgroundColor: '#03a9f4'}}>
-                <AnimView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}>
+                <AnimView style={{width: 250, height: 50,}}>
                     <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>Fading in</Text>
                 </AnimView>
             </View>

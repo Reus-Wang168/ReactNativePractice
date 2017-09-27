@@ -20,6 +20,10 @@ let height = Dimensions.get('window').height;
 let pixelRatio = PixelRatio.get();
 
 
+const pt2px = (pt) => PixelRatio.getPixelSizeForLayoutSize(pt);
+const px2pt = (px) => PixelRatio.roundToNearestPixel(px);
+
+
 import {PullView} from 'react-native-pull';
 
 import ImagePicker from 'react-native-image-crop-picker';
@@ -37,9 +41,6 @@ export default class app extends Component {
         this.topIndicatorRender = this.topIndicatorRender.bind(this);
 
 
-        console.log("DeviceInfo===" + DeviceInfo);
-        console.log("DeviceInfo.Dimension.window.DisplayMetrics===" + DeviceInfo.Dimensions.windowPhysicalPixels);
-        console.log("DeviceInfo.Dimension.window.screenDisplayMetrics===" + DeviceInfo.Dimensions.screenPhysicalPixels);
     }
 
     _showDeviceInfo = () => {
@@ -156,11 +157,6 @@ export default class app extends Component {
 
     _Custom_Param = () => {
 
-        // NativeModules.CustomParamsMoudle.choose({name:'1234',func(result){
-        //     console.log(result)
-        // }});
-
-
         NativeModules.CustomParamsMoudle.choose({
             name: '1234',
         }).then(result => {
@@ -175,40 +171,17 @@ export default class app extends Component {
         this.props.navigation.navigate('Camera');
     };
 
-
-
-    _toAnimationsPage = () => {
-        this.props.navigation.navigate('Animation');
+    _goToPage = (params) => {
+        this.props.navigation.navigate(params);
     };
 
-    _StyledComponentsExample =()=>{
-        this.props.navigation.navigate('StyledComponentsPage');
-    };
-
-    _GlamorousExample=()=>{
-        this.props.navigation.navigate('GlamorousPage');
-    };
-
-    _GlamorousThemeExample=()=>{
-        this.props.navigation.navigate('ExamplePage');
-    };
-    _GlamorousThemeExample2=()=>{
-        this.props.navigation.navigate('ExamplePage2');
-    };
-
-    _GlamorousThemeExample3=()=>{
-        this.props.navigation.navigate('StyleProject');
-    }
-
-    _toCarouselPage = () => {
-        this.props.navigation.navigate('Carousel');
-    };
 
     render() {
         return (
             <View style={[styles.container]} ref='myview'>
-                <PullView style={{width: Dimensions.get('window').width}} onPullRelease={this.onPullRelease}
-                          topIndicatorRender={this.topIndicatorRender} topIndicatorHeight={60}>
+                <PullView
+                    style={{width: Dimensions.get('window').width}} onPullRelease={this.onPullRelease}
+                    topIndicatorRender={this.topIndicatorRender} topIndicatorHeight={60}>
                     <View style={{backgroundColor: this.props.bgColor}}>
 
 
@@ -228,50 +201,66 @@ export default class app extends Component {
 
                                 分辨率={width * pixelRatio + "x" + height * pixelRatio}
 
+                                {"\n\n"}
+                                px2pt-width ={px2pt(300)}
+                                {"\n\n"}
+                                px2pt-height={px2pt(111)}
+                                {"\n"}
+                                pt2px-width={pt2px(width)}
+                                {"\n"}
+                                pt2px-height={pt2px(height)}
+
+
                             </Text>
 
 
                             <View style={{height: 20, backgroundColor: 'red', width: 300, marginLeft: 111}}>
                                 <Text style={{color: 'white'}}>width=300,marginLeft=111 的红色背景</Text>
                             </View>
-                            <View style={{height: 20, backgroundColor: 'red', width: 250, marginLeft: 161,marginTop:20}}>
+                            <View style={{
+                                height: 20,
+                                backgroundColor: 'red',
+                                width: 250,
+                                marginLeft: 161,
+                                marginTop: 20
+                            }}>
                                 <Text style={{color: 'white'}}>width=250,marginLeft=161 的红色背景</Text>
                             </View>
-
-
 
 
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
                                     title='GlamorousExample'
-                                    onPress={this._GlamorousExample}
+                                    onPress={() => {
+                                        this._goToPage('GlamorousPage')
+                                    }}
                                 />
                             </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
-                                    title='GlamorousThemeExamle'
-                                    onPress={this._GlamorousThemeExample}
-                                />
-                            </View>
-
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='GlamorousThemeExamle2'
-                                    onPress={this._GlamorousThemeExample2}
+                                    title='GlamorousThemeExample'
+                                    onPress={() => this._goToPage('ExamplePage')}
                                 />
                             </View>
 
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
-                                    title='GlamorousThemeExamle2'
-                                    onPress={this._GlamorousThemeExample3}
+                                    title='GlamorousThemeExample2'
+                                    onPress={() => this._goToPage('ExamplePage2')}
+                                />
+                            </View>
+
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='GlamorousThemeExample2'
+                                    onPress={() => this._goToPage('StyleProject')}
                                 />
                             </View>
 
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
                                     title='StyledComponentsExample'
-                                    onPress={this._StyledComponentsExample}
+                                    onPress={() => this._goToPage('StyledComponentsPage')}
                                 />
                             </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
@@ -284,14 +273,14 @@ export default class app extends Component {
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
                                     title='Animations'
-                                    onPress={this._toAnimationsPage}
+                                    onPress={() => this._goToPage('Animation')}
                                 />
                             </View>
 
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
                                     title='Carousel'
-                                    onPress={this._toCarouselPage}
+                                    onPress={() => this._goToPage('Carousel')}
                                 />
                             </View>
 
