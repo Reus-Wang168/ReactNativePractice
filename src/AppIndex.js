@@ -20,8 +20,6 @@ import {
 let width = Dimensions.get('window').width;
 
 
-
-
 import App from './app';
 import AppList from './appList';
 
@@ -170,32 +168,31 @@ export default class AppIndex extends Component {
 
 
                 <ViewPagerAndroid style={styles.container1} ref='ViewPager'
-                onPageSelected={(e) => {
-                let position = e.nativeEvent.position;
-                this.scrollTopItem(position)
-                }}>
-                <View style={styles.container}>
-                <App bgColor={'yellow'}  navigation={this.props.navigation}/>
-                </View>
-                <View style={styles.container}>
-                <AppList/>
-                </View>
-                <View style={styles.container}>
-                <App bgColor={'green'} navigation={this.props.navigation}/>
-                </View>
-                <View style={styles.container}>
-                <AppList/>
-                </View>
-                <View style={styles.container}>
-                <App bgColor={'green'} navigation={this.props.navigation}/>
-                </View>
-                <View style={styles.container}>
-                <AppList/>
-                </View>
-                <View style={styles.container}>
-                <App bgColor={'green'} navigation={this.props.navigation}/>
-                </View>
-
+                                  onPageSelected={(e) => {
+                                      let position = e.nativeEvent.position;
+                                      this.scrollTopItem(position)
+                                  }}>
+                    <View style={styles.container}>
+                        <App bgColor={'yellow'} navigation={this.props.navigation}/>
+                    </View>
+                    <View style={styles.container}>
+                        <AppList/>
+                    </View>
+                    <View style={styles.container}>
+                        <App bgColor={'green'} navigation={this.props.navigation}/>
+                    </View>
+                    <View style={styles.container}>
+                        <AppList/>
+                    </View>
+                    <View style={styles.container}>
+                        <App bgColor={'green'} navigation={this.props.navigation}/>
+                    </View>
+                    <View style={styles.container}>
+                        <AppList/>
+                    </View>
+                    <View style={styles.container}>
+                        <App bgColor={'green'} navigation={this.props.navigation}/>
+                    </View>
                 </ViewPagerAndroid>
             </View>
 

@@ -21,6 +21,7 @@ import GlamorousPage from './src/GlamorousPage';
 import ExamplePage from './src/common/example';
 import ExamplePage2 from './src/common/example2';
 import StyleProject from './src/wxbPage';
+import TabLayout from './src/TabLayout';
 
 const AppNav = StackNavigator({
     Home: {screen: AppIndex},
@@ -32,6 +33,8 @@ const AppNav = StackNavigator({
     ExamplePage: {screen: ExamplePage},
     ExamplePage2: {screen: ExamplePage2},
     StyleProject: {screen: StyleProject},
+    TabLayout:{screen:TabLayout}
+
 }, {
     initialRouteName: 'Home',
     navigationOptions: {
