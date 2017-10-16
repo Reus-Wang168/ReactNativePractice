@@ -22,6 +22,8 @@ import ExamplePage from './src/common/example';
 import ExamplePage2 from './src/common/example2';
 import StyleProject from './src/wxbPage';
 import TabLayout from './src/TabLayout';
+import MyViewPager from './src/MyViewPager';
+import MyScrollViewPage from './src/MyScrollViewPage';
 
 const AppNav = StackNavigator({
     Home: {screen: AppIndex},
@@ -33,7 +35,10 @@ const AppNav = StackNavigator({
     ExamplePage: {screen: ExamplePage},
     ExamplePage2: {screen: ExamplePage2},
     StyleProject: {screen: StyleProject},
-    TabLayout:{screen:TabLayout}
+    TabLayout: {screen: TabLayout},
+    MyViewPager: {screen: MyViewPager},
+    MyScrollViewPage:{screen:MyScrollViewPage}
+
 
 }, {
     initialRouteName: 'Home',

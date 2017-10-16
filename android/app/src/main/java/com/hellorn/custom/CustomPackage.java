@@ -7,6 +7,7 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.hellorn.custom.params.CustomParamsMoudle;
+import com.hellorn.customview.ReactMyScrollViewManager;
 import com.hellorn.customview.ReactMyViewPagerManager;
 
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class CustomPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Arrays.<ViewManager>asList(new ReactMyViewPagerManager());
+        return Arrays.<ViewManager>asList(new ReactMyViewPagerManager(),
+                new ReactMyScrollViewManager());
     }
 }

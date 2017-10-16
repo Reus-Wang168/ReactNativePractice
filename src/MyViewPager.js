@@ -4,12 +4,10 @@
 
 import React, {Component} from 'react';
 
-import {View, Dimensions, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
+import {View, Dimensions, Text, ScrollView, TouchableOpacity, Image, ViewPagerAndroid} from 'react-native';
 
 const screenW = Dimensions.get('window').width;
 const screenH = Dimensions.get('window').height;
-
-import Carousel from 'react-native-looped-carousel';
 
 
 let pics = require('./pics.json');
@@ -79,27 +77,35 @@ class Tab extends Component {
 }
 
 
-export default class TabLayout extends Component {
-
-
+export default class MyViewPager extends Component {
     constructor(props) {
         super(props);
         this.state = {
             selectedIndex: 0,
             swipe: false,
+            height: screenH / 3 - 0.01,
+            width: screenW - 0.01,
         }
     }
 
     _onPageChange = (p) => {
+        console.log("p=====" + p.nativeEvent.position);
+
         this.setState({
-            selectedIndex: p,
+            selectedIndex: p.nativeEvent.position,
         });
 
-        if(p===0) {
-            this.setState({swipe: false})
-        }
 
     };
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                height: screenH / 3,
+                width: screenW,
+            });
+        }, 2000);
+    }
 
     _onSubPageChange = (p) => {
         if (p === 2) {
@@ -111,7 +117,7 @@ export default class TabLayout extends Component {
 
 
     _onPageSelected = (index) => {
-        this.refs.Carousel.animateToPage(index);
+        this.refs.Carousel.setPage(index);
     };
 
 
@@ -119,40 +125,27 @@ export default class TabLayout extends Component {
         return <View>
             <Tab selectedIndex={this.state.selectedIndex}
                  select={(index) => this._onPageSelected(index)}/>
-            <Carousel
+            <ViewPagerAndroid
                 ref='Carousel'
-                swipe={true}
-                autoplay={false}
                 style={{width: screenW, height: screenH}}
-                onAnimateNextPage={(p) => this._onPageChange(p)}
+                onPageSelected={(index) => this._onPageChange(index)}
             >
                 <View style={{
                     backgroundColor: '#BADA55',
                     width: screenW,
                     height: screenH,
                 }}>
-                    <Carousel style={{width: screenW, height: screenH / 3}}
-                              autoplay={false}
-                              bullets={true}
-                              onAnimateNextPage={(p) => this._onSubPageChange(p)}
-                    >
+                    <ViewPagerAndroid
+                        style={{width: this.state.width, height: this.state.height, backgroundColor: 'red'}}>
 
-                        <Image style={{
-                            width: screenW,
-                            height: screenH / 3,
-                        }} source={{uri: pics[0]}}/>
-                        <Image style={{
-                            width: screenW,
-                            height: screenH / 3,
-                        }} source={{uri: pics[11]}}/>
-                        <Image style={{
-                            width: screenW,
-                            height: screenH / 3,
-                        }} source={{uri: pics[29]}}/>
+                        <View style={{flex: 1,backgroundColor:'green'}}>
+                            <Text>111111</Text>
+                        </View>
+                        <View style={{flex: 1}}>
+                            <Text>111111</Text>
+                        </View>
+                    </ViewPagerAndroid>
 
-
-                    </Carousel>
-                    <Text>{items[0]}</Text>
 
                 </View>
                 <View style={{
@@ -170,7 +163,7 @@ export default class TabLayout extends Component {
                     justifyContent: 'center'
                 }}><Text>{items[2]}</Text></View>
 
-            </Carousel>
+            </ViewPagerAndroid>
         </View>
     }
 }
