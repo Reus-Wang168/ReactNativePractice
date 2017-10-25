@@ -238,6 +238,14 @@ export default class app extends Component {
                             </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
+                                    title='ProductDetail'
+                                    onPress={() => {
+                                        this._goToPage('ProductDetail')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
                                     title='TabLayout'
                                     onPress={() => {
                                         this._goToPage('TabLayout')

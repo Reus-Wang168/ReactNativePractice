@@ -4,7 +4,7 @@
 
 import React, {Component} from 'react';
 
-import {View, Dimensions, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
+import {View, Dimensions, Text, ScrollView, TouchableOpacity, ViewPagerAndroid,Image} from 'react-native';
 
 const screenW = Dimensions.get('window').width;
 const screenH = Dimensions.get('window').height;
@@ -41,10 +41,7 @@ class Tab extends Component {
                 }
                 }>
                     <View style={{alignItems: 'center'}}>
-                        <Text style={{
-                            margin: 10,
-                            fontSize: selectedIndex === index ? 18 : 15,
-                        }}>{item}</Text>
+                        <Text style={{margin: 10, fontSize: selectedIndex === index ? 18 : 15,}}>{item}</Text>
 
                         {selectedIndex === index ? (
                             <View style={{width: 20, height: 2, backgroundColor: 'black'}}/>) : (<View/>)}
@@ -121,7 +118,7 @@ export default class TabLayout extends Component {
                  select={(index) => this._onPageSelected(index)}/>
             <Carousel
                 ref='Carousel'
-                swipe={true}
+                swipe={false}
                 autoplay={false}
                 style={{width: screenW, height: screenH}}
                 onAnimateNextPage={(p) => this._onPageChange(p)}

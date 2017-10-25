@@ -131,6 +131,133 @@ class UpView extends Component {
             <Text>up</Text>
             <Text>up</Text>
             <Text>up</Text>
+            <Text>last</Text>
+        </View>)
+    }
+}
+
+class DownView extends Component {
+    render() {
+        return (<View>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>up</Text>
+            <Text>last</Text>
         </View>)
     }
 }
@@ -143,9 +270,10 @@ export default class MyScrollViewPage extends Component {
                 <ScrollView contentContainerStyle={{backgroundColor: '#de5c63', width: width, alignItems: 'center'}}>
                     <UpView/>
                 </ScrollView>
-                <View style={{backgroundColor: '#54d9a6', width: width,}}>
-                    <Text>down</Text>
-                </View>
+                <ScrollView contentContainerStyle={{backgroundColor: '#54d9a6', width: width, alignItems: 'center'}}>
+                    <DownView/>
+                </ScrollView>
+
             </CustomScrollView>
 
         )

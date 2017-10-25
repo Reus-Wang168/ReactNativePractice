@@ -7,7 +7,7 @@ import com.facebook.react.uimanager.ViewGroupManager;
  * Created by Rookie on 2017/9/29.
  */
 
-public class ReactMyScrollViewManager extends ViewGroupManager<CustomScrollView> {
+public class ReactMyScrollViewManager extends ViewGroupManager<SlideDetailsLayout> {
 
     private static final String REACT_CLASS = "CustomScrollView";
 
@@ -18,7 +18,7 @@ public class ReactMyScrollViewManager extends ViewGroupManager<CustomScrollView>
     }
 
     @Override
-    protected CustomScrollView createViewInstance(ThemedReactContext reactContext) {
-        return new CustomScrollView(reactContext);
+    protected SlideDetailsLayout createViewInstance(ThemedReactContext reactContext) {
+        return new SlideDetailsLayout(reactContext);
     }
 }

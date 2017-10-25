@@ -20,6 +20,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.facebook.react.views.scroll.ReactScrollView;
 
 
 @SuppressWarnings("unused")
@@ -215,7 +216,8 @@ public class SlideDetailsLayout extends ViewGroup {
         int bottom;
 
         final int offset = (int) mSlideOffset;
-
+        mFrontView = getChildAt(0);
+        mBehindView = getChildAt(1);
         View child;
         for (int i = 0; i < getChildCount(); i++) {
             child = getChildAt(i);
@@ -266,11 +268,12 @@ public class SlideDetailsLayout extends ViewGroup {
                 final float yDiff = y - mInitMotionY;
 
                 if (canChildScrollVertically((int) yDiff)) {
+                    Log.e(TAG, "onInterceptTouchEvent: canChildScroll=true");
                     shouldIntercept = false;
                 } else {
                     final float xDiffabs = Math.abs(xDiff);
                     final float yDiffabs = Math.abs(yDiff);
-
+                    Log.e(TAG, "onInterceptTouchEvent: canChildScroll=false");
                     // intercept rules：
                     // 1. The vertical displacement is larger than the horizontal displacement;
                     // 2. Panel stauts is CLOSE：slide up
@@ -345,9 +348,6 @@ public class SlideDetailsLayout extends ViewGroup {
     private void processTouchEvent(final float offset) {
 
 
-        Log.e(TAG, "processTouchEvent: offset===  " + offset);
-
-
         if (Math.abs(offset) < mTouchSlop) {
             return;
         }
@@ -386,7 +386,7 @@ public class SlideDetailsLayout extends ViewGroup {
 
         scrollTo(0, (int) -mSlideOffset);
 
-//        requestLayout();
+        requestLayout();
     }
 
     /**
@@ -397,9 +397,6 @@ public class SlideDetailsLayout extends ViewGroup {
         final int percent = (int) (pHeight * mPercent);
         final float offset = mSlideOffset;
 
-        Log.e(TAG, "finishTouchEvent: pHeight==" + pHeight);
-        Log.e(TAG, "finishTouchEvent: percent==" + percent);
-        Log.e(TAG, "finishTouchEvent: offset==" + offset);
 
         boolean changed = false;
 
@@ -446,9 +443,9 @@ public class SlideDetailsLayout extends ViewGroup {
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                Log.e(TAG, "onAnimationUpdate: animation.Value==" + animation.getAnimatedValue());
                 mSlideOffset = (float) animation.getAnimatedValue();
                 requestLayout();
+                scrollTo(0, (int) -mSlideOffset);
             }
         });
         animator.addListener(new AnimatorListenerAdapter() {
@@ -500,6 +497,7 @@ public class SlideDetailsLayout extends ViewGroup {
      * @return true if this view can be scrolled in the specified direction, false otherwise.
      */
     protected boolean canChildScrollVertically(int direction) {
+
         if (mTarget instanceof AbsListView) {
             return canListViewSroll((AbsListView) mTarget);
         } else if (mTarget instanceof FrameLayout ||

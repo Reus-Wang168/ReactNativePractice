@@ -1,4 +1,3 @@
-
 package com.hellorn.customview;
 
 import android.animation.ValueAnimator;
@@ -23,6 +22,8 @@ public class CustomScrollView extends ViewGroup {
     private float motionX, motionY;
 
     private View upView, downView;
+
+    private static final int BASE_DISTANCE = 200;
 
     private static final int MASK = 0X01;
 
@@ -69,13 +70,17 @@ public class CustomScrollView extends ViewGroup {
 
 
                     View subView = status == CLOSE ? upView : downView;
+
                     boolean subViewCanScroll = ViewCompat.canScrollVertically(subView, (int) -deltaY);
+
                     Log.e("aaa", "onInterceptTouchEvent: subViewCanScroll==" + subViewCanScroll);
-                    shouldIntercept = !subViewCanScroll;
 
+                    if (subViewCanScroll) {
+                        shouldIntercept = false;
+                    } else {
+                        shouldIntercept = true;
+                    }
                 }
-
-
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
@@ -112,13 +117,12 @@ public class CustomScrollView extends ViewGroup {
 
     private void handleActionFinish() {
         Log.e(TAG, "handleActionFinish: offset==" + offset);
-
-        Log.e(TAG, "handleActionFinish: getMeasuredHeight=" + getMeasuredHeight());
+        Log.e(TAG, "handleActionFinish: getMeasuredHeight===" + getMeasuredHeight());
 
 
         if (status == CLOSE) {
             if (offset < 0) {
-                if (offset < -200) {
+                if (offset < -BASE_DISTANCE) {
 
                     status = OPEN;
                     mValueAnimator = ValueAnimator.ofInt(offset, -getMeasuredHeight());
@@ -132,7 +136,7 @@ public class CustomScrollView extends ViewGroup {
             }
         } else if (status == OPEN) {
             if (offset < 0) {
-                if (offset > 200 - getMeasuredHeight()) {
+                if (offset > BASE_DISTANCE - getMeasuredHeight()) {
                     status = CLOSE;
                     mValueAnimator = ValueAnimator.ofInt(offset, 0);
                 } else {
@@ -143,32 +147,41 @@ public class CustomScrollView extends ViewGroup {
                 status = OPEN;
                 mValueAnimator = ValueAnimator.ofInt(-getMeasuredHeight(), -getMeasuredHeight());
             }
+
+
         }
         mValueAnimator.setInterpolator(new AccelerateInterpolator());
         mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 offset = (int) animation.getAnimatedValue();
-                Log.e(TAG, "onAnimationUpdate: offset=" + offset);
+                requestLayout();
                 scrollTo(0, -offset);
             }
         });
         mValueAnimator.setDuration(300);
         mValueAnimator.start();
 
+
         Log.e(TAG, "handleActionFinish: status=" + status);
+
     }
 
     private void handleActionMove(float deltaY) {
 
 
-        Log.e(TAG, "handleActionMove: delatY=" + deltaY);
+        Log.e(TAG, "handleActionMove: deltaY=" + deltaY);
 
 
         if (status == CLOSE) {
 
 
+            if (deltaY > 0) {
+//                return;
+            }
+
             offset = (int) (deltaY * 0.2f);
+
         } else if (status == OPEN) {
 
             if (deltaY < 0) {
@@ -178,11 +191,13 @@ public class CustomScrollView extends ViewGroup {
 
             deltaY = (float) (-getMeasuredHeight() + deltaY * 0.2);
             offset = (int) deltaY;
+
+
         }
 
 
+        requestLayout();
         scrollTo(0, -offset);
-
     }
 
     @Override
@@ -214,8 +229,6 @@ public class CustomScrollView extends ViewGroup {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-        Log.e(TAG, "onFinishInflate: getChildCount==" + getChildCount());
-
         if (getChildCount() < 2) {
             throw new RuntimeException("need 2 subView ");
         }
@@ -227,15 +240,7 @@ public class CustomScrollView extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        Log.e(TAG, "onLayout: offset==" + offset);
-        Log.e(TAG, "onLayout: getChildCount==" + getChildCount());
-        Log.e(TAG, "onLayout: l=" + l);
-        Log.e(TAG, "onLayout: t=" + t);
-        Log.e(TAG, "onLayout: r=" + r);
-        Log.e(TAG, "onLayout: b=" + b);
 
-
-        Log.e(TAG, "onLayout: aaaaaaaaaaaaaaaaaaa");
 
         upView = getChildAt(0);
         downView = getChildAt(1);
@@ -243,10 +248,10 @@ public class CustomScrollView extends ViewGroup {
         if (upView.getVisibility() != GONE) {
             upView.layout(l, t + offset, r, b + offset);
         }
-
-
         if (downView.getVisibility() != GONE) {
             downView.layout(l, b + offset, r, 2 * b + offset - t);
         }
+
+
     }
 }

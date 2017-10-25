@@ -1,0 +1,61 @@
+﻿{
+  "data": [
+    {
+      "id": 10025,
+      "matchPrice": "3.00",
+      "productId": 10023,
+      "productName": "可口可乐（Coca-Cola） 零度（Zero） 汽水",
+      "thumbUrl": "http://124.193.192.92:8082/assets/upload/product/3a33189a5b65dfec41285629823c3b0b_150x150.jpg"
+    },
+    {
+      "id": 10031,
+      "matchPrice": "2.50",
+      "productId": 10029,
+      "productName": "统一冰红茶500ml 瓶装",
+      "thumbUrl": "http://124.193.192.92:8082/assets/upload/product/c0027f28f8853e5ce5cf157fa38674d2_150x150.jpg"
+    },
+    {
+      "id": 10091,
+      "matchPrice": "3.00",
+      "productId": 10087,
+      "productName": "雪碧碳酸饮料600ml",
+      "thumbUrl": "http://124.193.192.92:8082/assets/upload/product/7b98ad9590ffa8760de3b729ff02f733_150x150.png"
+    },
+    {
+      "id": 33333346,
+      "matchPrice": "4.00",
+      "productId": 33333346,
+      "productName": "娃哈哈营养快线",
+      "thumbUrl": "http://124.193.192.92:8082/assets/upload/product/c98cef4feadd6ea5f789c5d17ce34502_150x150.png"
+    },
+    {
+      "id": 33333350,
+      "matchPrice": "2.00",
+      "productId": 33333350,
+      "productName": "邬辣妈酒鬼豆筋",
+      "thumbUrl": "http://124.193.192.92:8082/assets/upload/product/7da4be2ffc7c20cccc43c2c94afb8155_150x150.png"
+    },
+    {
+      "id": 33333343,
+      "matchPrice": "0.50",
+      "productId": 33333343,
+      "productName": "统一小当家 香葱味干脆面",
+      "thumbUrl": "http://124.193.192.92:8082/assets/upload/product/ac76f5c0ff39e041beacee7e4d71d422_150x150.png"
+    },
+    {
+      "id": 10040,
+      "matchPrice": "3.50",
+      "productId": 10038,
+      "productName": "太平 梳打饼干 香葱味 100g 袋装",
+      "thumbUrl": "http://124.193.192.92:8082/assets/upload/product/728619893eee73566d442a063b3d63cb_150x150.jpg"
+    },
+    {
+      "id": 10074,
+      "matchPrice": "3.50",
+      "productId": 10070,
+      "productName": "闲趣 自然清咸 原味 饼干 90g",
+      "thumbUrl": "http://124.193.192.92:8082/assets/upload/product/3adf8bcd52f1f1cec0540dcd8cff0799_150x150.png"
+    }
+  ],
+  "stateCode": 0
+}
