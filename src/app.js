@@ -230,6 +230,46 @@ export default class app extends Component {
 
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
+                                    title='SimpleExample'
+                                    onPress={() => {
+                                        this._goToPage('SimpleExample')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='DynamicExample'
+                                    onPress={() => {
+                                        this._goToPage('DynamicExample')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='FaceBookExample'
+                                    onPress={() => {
+                                        this._goToPage('FaceBookExample')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='ScrollableTabsExample'
+                                    onPress={() => {
+                                        this._goToPage('ScrollableTabsExample')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='OverlayExample'
+                                    onPress={() => {
+                                        this._goToPage('OverlayExample')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
                                     title='MyScrollViewPage'
                                     onPress={() => {
                                         this._goToPage('MyScrollViewPage')

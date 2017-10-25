@@ -27,6 +27,13 @@ import MyScrollViewPage from './src/MyScrollViewPage';
 import ProductDetail from './src/ProductDetail';
 
 
+import SimpleExample from './src/tabscrollview/SimpleExample';
+import DynamicExample from './src/tabscrollview/DynamicExample';
+import FaceBookExample from './src/tabscrollview/FacebookExample';
+import ScrollableTabsExample from './src/tabscrollview/ScrollableTabsExample';
+import OverlayExample from './src/tabscrollview/OverlayExample';
+
+
 const AppNav = StackNavigator({
     Home: {screen: AppIndex},
     Camera: {screen: Camera},
@@ -40,8 +47,12 @@ const AppNav = StackNavigator({
     TabLayout: {screen: TabLayout},
     MyViewPager: {screen: MyViewPager},
     MyScrollViewPage: {screen: MyScrollViewPage},
-    ProductDetail:{screen:ProductDetail}
-
+    ProductDetail: {screen: ProductDetail},
+    SimpleExample: {screen: SimpleExample},
+    DynamicExample: {screen: DynamicExample},
+    FaceBookExample: {screen: FaceBookExample},
+    ScrollableTabsExample: {screen: ScrollableTabsExample},
+    OverlayExample: {screen: OverlayExample}
 
 
 }, {
