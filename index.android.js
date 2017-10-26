@@ -12,15 +12,10 @@ import {
 import {StackNavigator} from 'react-navigation'
 
 
-import AppIndex from './src/AppIndex';
+import AppIndex from './src/app';
+import AppList from './src/appList';
 import Camera from './src/BadInstagramCloneApp';
 import Animations from './src/AnimationsPage';
-import CarouselExample from './src/CarouselExample';
-import StyledComponentsPage from './src/StyledComponentsPage';
-import GlamorousPage from './src/GlamorousPage';
-import ExamplePage from './src/common/example';
-import ExamplePage2 from './src/common/example2';
-import StyleProject from './src/wxbPage';
 import TabLayout from './src/TabLayout';
 import MyViewPager from './src/MyViewPager';
 import MyScrollViewPage from './src/MyScrollViewPage';
@@ -32,18 +27,14 @@ import DynamicExample from './src/tabscrollview/DynamicExample';
 import FaceBookExample from './src/tabscrollview/FacebookExample';
 import ScrollableTabsExample from './src/tabscrollview/ScrollableTabsExample';
 import OverlayExample from './src/tabscrollview/OverlayExample';
+import IndexExample from './src/tabscrollview/IndexExample';
 
 
 const AppNav = StackNavigator({
     Home: {screen: AppIndex},
+    AppList:{screen:AppList},
     Camera: {screen: Camera},
     Animation: {screen: Animations},
-    Carousel: {screen: CarouselExample},
-    StyledComponentsPage: {screen: StyledComponentsPage},
-    GlamorousPage: {screen: GlamorousPage},
-    ExamplePage: {screen: ExamplePage},
-    ExamplePage2: {screen: ExamplePage2},
-    StyleProject: {screen: StyleProject},
     TabLayout: {screen: TabLayout},
     MyViewPager: {screen: MyViewPager},
     MyScrollViewPage: {screen: MyScrollViewPage},
@@ -52,7 +43,8 @@ const AppNav = StackNavigator({
     DynamicExample: {screen: DynamicExample},
     FaceBookExample: {screen: FaceBookExample},
     ScrollableTabsExample: {screen: ScrollableTabsExample},
-    OverlayExample: {screen: OverlayExample}
+    OverlayExample: {screen: OverlayExample},
+    IndexExample: {screen: IndexExample}
 
 
 }, {

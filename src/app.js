@@ -228,43 +228,12 @@ export default class app extends Component {
                             </View>
 
 
+
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
-                                    title='SimpleExample'
+                                    title='tab-scrollable-view-index'
                                     onPress={() => {
-                                        this._goToPage('SimpleExample')
-                                    }}
-                                />
-                            </View>
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='DynamicExample'
-                                    onPress={() => {
-                                        this._goToPage('DynamicExample')
-                                    }}
-                                />
-                            </View>
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='FaceBookExample'
-                                    onPress={() => {
-                                        this._goToPage('FaceBookExample')
-                                    }}
-                                />
-                            </View>
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='ScrollableTabsExample'
-                                    onPress={() => {
-                                        this._goToPage('ScrollableTabsExample')
-                                    }}
-                                />
-                            </View>
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='OverlayExample'
-                                    onPress={() => {
-                                        this._goToPage('OverlayExample')
+                                        this._goToPage('IndexExample')
                                     }}
                                 />
                             </View>
@@ -286,47 +255,21 @@ export default class app extends Component {
                             </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
+                                    title='AppList'
+                                    onPress={() => {
+                                        this._goToPage('AppList')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
                                     title='TabLayout'
                                     onPress={() => {
                                         this._goToPage('TabLayout')
                                     }}
                                 />
                             </View>
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='GlamorousExample'
-                                    onPress={() => {
-                                        this._goToPage('GlamorousPage')
-                                    }}
-                                />
-                            </View>
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='GlamorousThemeExample'
-                                    onPress={() => this._goToPage('ExamplePage')}
-                                />
-                            </View>
 
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='GlamorousThemeExample2'
-                                    onPress={() => this._goToPage('ExamplePage2')}
-                                />
-                            </View>
-
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='GlamorousThemeExample2'
-                                    onPress={() => this._goToPage('StyleProject')}
-                                />
-                            </View>
-
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='StyledComponentsExample'
-                                    onPress={() => this._goToPage('StyledComponentsPage')}
-                                />
-                            </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
                                     title='ShowDeviceInfo'
@@ -341,12 +284,6 @@ export default class app extends Component {
                                 />
                             </View>
 
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='Carousel'
-                                    onPress={() => this._goToPage('Carousel')}
-                                />
-                            </View>
 
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
