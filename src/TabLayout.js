@@ -28,7 +28,7 @@ class Tab extends Component {
 
         let selectedIndex = this.props.selectedIndex;
 
-        let select = this.props.select;
+        let select = 1;
 
         let views = [];
 

@@ -182,7 +182,7 @@ export default class app extends Component {
                 <PullView
                     style={{width: Dimensions.get('window').width}} onPullRelease={this.onPullRelease}
                     topIndicatorRender={this.topIndicatorRender} topIndicatorHeight={60}>
-                    <View style={{backgroundColor: this.props.bgColor}}>
+                    <View style={{backgroundColor: '#31cd96'}}>
 
 
                         <Image
@@ -194,39 +194,29 @@ export default class app extends Component {
 
                         <View style={{flex: 1, marginTop: 50, width: Dimensions.get('window').width}}>
 
-                            <Text style={{fontSize: 18, color: 'black'}}>
-                                window.width={width + " dp\n"}
-                                window.height={height + " dp\n"}
-                                pixelRatio={pixelRatio + "\n"}
 
-                                分辨率={width * pixelRatio + "x" + height * pixelRatio}
+                            <View style={{borderRadius: 5, borderWidth: 1, borderColor: 'white', margin: 10}}>
 
-                                {"\n\n"}
-                                px2pt-width ={px2pt(300)}
-                                {"\n\n"}
-                                px2pt-height={px2pt(111)}
-                                {"\n"}
-                                pt2px-width={pt2px(width)}
-                                {"\n"}
-                                pt2px-height={pt2px(height)}
+                                <Text style={{fontSize: 18, color: 'white', margin: 10}}>
+                                    window.width={width + " dp\n"}
+                                    window.height={height + " dp\n"}
+                                    pixelRatio={pixelRatio + "\n"}
+
+                                    分辨率={width * pixelRatio + "x" + height * pixelRatio}
+
+                                    {"\n\n"}
+                                    px2pt-width ={px2pt(300)}
+                                    {"\n\n"}
+                                    px2pt-height={px2pt(111)}
+                                    {"\n"}
+                                    pt2px-width={pt2px(width)}
+                                    {"\n"}
+                                    pt2px-height={pt2px(height)}
 
 
-                            </Text>
+                                </Text>
 
-
-                            <View style={{height: 20, backgroundColor: 'red', width: 300, marginLeft: 111}}>
-                                <Text style={{color: 'white'}}>width=300,marginLeft=111 的红色背景</Text>
                             </View>
-                            <View style={{
-                                height: 20,
-                                backgroundColor: 'red',
-                                width: 250,
-                                marginLeft: 161,
-                                marginTop: 20
-                            }}>
-                                <Text style={{color: 'white'}}>width=250,marginLeft=161 的红色背景</Text>
-                            </View>
-
 
 
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>

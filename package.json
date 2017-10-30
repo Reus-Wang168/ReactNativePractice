@@ -12,6 +12,7 @@
 		"react-native-camera": "^0.10.0",
 		"react-native-canvas": "^0.1.14",
 		"react-native-image-crop-picker": "^0.15.3",
+		"react-native-linear-gradient": "^2.3.0",
 		"react-native-looped-carousel": "^0.1.7",
 		"react-native-pull": "^2.0.2",
 		"react-native-qrcode-scanner": "^0.0.17",

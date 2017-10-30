@@ -3497,6 +3497,12 @@ react-native-image-crop-picker@^0.15.3:
   version "0.15.3"
   resolved "http://registry.npm.taobao.org/react-native-image-crop-picker/download/react-native-image-crop-picker-0.15.3.tgz#86572597c0cbf53a17db4527d4f8b99be6a23b52"
 
+react-native-linear-gradient@^2.3.0:
+  version "2.3.0"
+  resolved "http://registry.npm.taobao.org/react-native-linear-gradient/download/react-native-linear-gradient-2.3.0.tgz#757997197e35edf52e290891a11566e462845da1"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-looped-carousel@^0.1.7:
   version "0.1.7"
   resolved "http://registry.npm.taobao.org/react-native-looped-carousel/download/react-native-looped-carousel-0.1.7.tgz#9e81aec732039250568e367383d0bd70ba4173e9"
