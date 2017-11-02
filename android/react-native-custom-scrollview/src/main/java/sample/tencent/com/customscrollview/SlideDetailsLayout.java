@@ -1,10 +1,9 @@
-package com.hellorn.customview;
+package sample.tencent.com.customscrollview;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.view.MotionEventCompat;
@@ -20,12 +19,11 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.facebook.react.views.scroll.ReactScrollView;
-
 
 @SuppressWarnings("unused")
 public class SlideDetailsLayout extends ViewGroup {
     private static final String TAG = "SlideDetailsLayout";
+
 
     /**
      * Callback for panel OPEN-CLOSE status changed.
@@ -91,13 +89,6 @@ public class SlideDetailsLayout extends ViewGroup {
 
     public SlideDetailsLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
-//        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SlideDetailsLayout, defStyleAttr, 0);
-//        mPercent = a.getFloat(R.styleable.SlideDetailsLayout_percent, DEFAULT_PERCENT);
-//        mDuration = a.getInt(R.styleable.SlideDetailsLayout_duration, DEFAULT_DURATION);
-//        mDefaultPanel = a.getInt(R.styleable.SlideDetailsLayout_default_panel, 0);
-//        a.recycle();
-
         mTouchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
@@ -164,6 +155,7 @@ public class SlideDetailsLayout extends ViewGroup {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
+
         final int childCount = getChildCount();
         if (1 >= childCount) {
             throw new RuntimeException("SlideDetailsLayout only accept childs more than 1!!");
@@ -210,6 +202,11 @@ public class SlideDetailsLayout extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        Log.e(TAG, "onLayout: l=" + l);
+        Log.e(TAG, "onLayout: t=" + t);
+        Log.e(TAG, "onLayout: r=" + r);
+        Log.e(TAG, "onLayout: b=" + b);
+
         final int left = l;
         final int right = r;
         int top;
@@ -290,7 +287,10 @@ public class SlideDetailsLayout extends ViewGroup {
             case MotionEvent.ACTION_CANCEL: {
                 shouldIntercept = false;
                 break;
+
             }
+            default:
+                break;
 
         }
 
@@ -338,6 +338,8 @@ public class SlideDetailsLayout extends ViewGroup {
                 wantTouch = false;
                 break;
             }
+            default:
+                break;
         }
         return wantTouch;
     }
@@ -388,6 +390,7 @@ public class SlideDetailsLayout extends ViewGroup {
 
         requestLayout();
     }
+
 
     /**
      * Called after gesture is ending.
@@ -497,6 +500,11 @@ public class SlideDetailsLayout extends ViewGroup {
      * @return true if this view can be scrolled in the specified direction, false otherwise.
      */
     protected boolean canChildScrollVertically(int direction) {
+
+//        if (mTarget instanceof ReactScrollView) {
+//            return true;
+//        }
+
 
         if (mTarget instanceof AbsListView) {
             return canListViewSroll((AbsListView) mTarget);

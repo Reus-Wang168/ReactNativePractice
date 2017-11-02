@@ -11,7 +11,7 @@ import {
     Animated,
     ViewPagerAndroid,
     InteractionManager,
-    VirtualizedList,
+    VirtualizedList, TouchableHighlight, Modal,
 } from 'react-native';
 
 
@@ -114,6 +114,7 @@ export default class ProductDetail extends Component {
             showSwiper: false,
             selectedIndex: 0,
             scrollY: 0,
+            modalVisible: false,
         });
     }
 
@@ -245,6 +246,9 @@ export default class ProductDetail extends Component {
         </TouchableOpacity>
     );
 
+    setModalVisible(visible) {
+        this.setState({modalVisible: visible});
+    }
 
     render() {
 
@@ -253,14 +257,15 @@ export default class ProductDetail extends Component {
             <View style={{flex: 1, backgroundColor: 'white'}}>
 
 
-
-
                 <ViewPagerAndroid style={{flex: 1}} ref="ViewPagerAndroid" initialPage={0} peekEnabled={true}
                                   onPageSelected={(e) => this._onPageChange(e)}>
 
 
                     <View style={{flex: 1, width: Screen.width}}>
-                        <ScrollView contentContainerStyle={{width: Screen.width}} tabLabel='商品'
+
+						<CustomScrollView>
+
+                        <ScrollView contentContainerStyle={{width: Screen.width}}
                                     onScroll={this._onContentScroll}>
 
                             {this.state.showSwiper ? (<Swiper
@@ -275,7 +280,12 @@ export default class ProductDetail extends Component {
                                 contentContainerStyle={[styles.contentContainer, {flexDirection: 'row'}]}
                                 dotColor="black"
                                 activeDotColor="blue"
-                                paginationStyle={{width: 50, height: 20, left: Screen.width / 2 - 50 / 2, bottom: -5}}
+                                paginationStyle={{
+                                    width: 50,
+                                    height: 20,
+                                    left: Screen.width / 2 - 50 / 2,
+                                    bottom: -5
+                                }}
                                 dotStyle={{
                                     width: 10,
                                     height: 10,
@@ -296,7 +306,11 @@ export default class ProductDetail extends Component {
                                 {this.state.data.data.description}
                             </Text>
                             {/*价格*/}
-                            <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+                            <View style={{
+                                flexDirection: 'row',
+                                justifyContent: 'space-between',
+                                alignItems: 'center'
+                            }}>
 
                                 <View style={{flexDirection: 'row', margin: 10, alignItems: 'flex-end'}}>
                                     <Text style={{color: 'red', fontSize: 19, fontWeight: 'normal'}}>
@@ -360,6 +374,17 @@ export default class ProductDetail extends Component {
                             </View>
 
                         </ScrollView>
+						<ScrollView>
+							<Text>111111</Text>
+							<Text>111111</Text>
+							<Text>111111</Text>
+							<Text>111111</Text>
+							<Text>111111</Text>
+							<Text>111111</Text>
+							<Text>111111</Text>
+							<Text>111111</Text>
+						</ScrollView>
+						</CustomScrollView>
                     </View>
 
                     <View style={{
@@ -406,14 +431,91 @@ export default class ProductDetail extends Component {
                         <Image style={{width: 30, height: 30, margin: 10, opacity: 1 - this.state.opacity}}
                                source={require('./../res/images/icon-back.png')}/>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                        style={{position: 'absolute', right: 0}}>
+                    <TouchableOpacity onPress={() => this.setModalVisible(true)}
+                                      style={{position: 'absolute', right: 0}}>
                         <Image
                             style={{width: 30, height: 30, margin: 10, opacity: this.state.selectedIndex > 0 ? 0 : 1}}
                             source={require('./../res/images/icon-more.png')}/>
                     </TouchableOpacity>
 
                 </View>
+
+
+                <Modal
+                    animationType={"fade"}
+                    transparent={true}
+                    visible={this.state.modalVisible}
+                    onRequestClose={() => {
+                        // alert("Modal has been closed.")
+                    }}
+                >
+                    <View
+                        style={{
+                            flex: 1,
+                            marginTop: 0,
+                            backgroundColor: 'transparent',
+                            opacity: 1,
+                            alignItems: 'flex-end'
+                        }}>
+
+
+                        <TouchableOpacity onPress={() => {
+                            this.setModalVisible(false)
+                        }}>
+                            <View style={{
+                                marginTop: 50,
+                                backgroundColor: 'transparent',
+                                flex: 1,
+                                width: Screen.width,
+                                alignItems: 'flex-end'
+                            }}>
+
+                                <View style={{
+                                    width: Screen.width / 3,
+                                    backgroundColor: '#ffffff',
+                                    marginRight: 10,
+                                    borderRadius: 5,
+                                }}>
+
+
+                                    <TouchableHighlight onPress={() => {
+                                        this.setModalVisible(!this.state.modalVisible)
+                                        this.props.navigation.navigate('Home');
+                                    }} style={{margin: 8}}>
+                                        <Text>Home</Text>
+                                    </TouchableHighlight>
+                                    <TouchableHighlight onPress={() => {
+                                        this.setModalVisible(!this.state.modalVisible)
+                                    }} style={{margin: 8}}>
+                                        <Text>Setting</Text>
+                                    </TouchableHighlight>
+                                    <TouchableHighlight onPress={() => {
+                                        this.setModalVisible(!this.state.modalVisible)
+                                    }} style={{margin: 8}}>
+                                        <Text>Setting</Text>
+                                    </TouchableHighlight>
+                                    <TouchableHighlight onPress={() => {
+                                        this.setModalVisible(!this.state.modalVisible)
+                                    }} style={{margin: 8}}>
+                                        <Text>Setting</Text>
+                                    </TouchableHighlight>
+                                    <TouchableHighlight onPress={() => {
+                                        this.setModalVisible(!this.state.modalVisible)
+                                    }} style={{margin: 8}}>
+                                        <Text>Setting</Text>
+                                    </TouchableHighlight>
+
+                                </View>
+                            </View>
+
+
+                        </TouchableOpacity>
+
+
+                    </View>
+
+
+                </Modal>
 
 
                 <View style={{

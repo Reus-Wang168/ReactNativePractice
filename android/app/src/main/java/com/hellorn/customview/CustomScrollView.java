@@ -86,6 +86,8 @@ public class CustomScrollView extends ViewGroup {
             case MotionEvent.ACTION_CANCEL:
                 shouldIntercept = false;
                 break;
+            default:
+                break;
         }
 
         return shouldIntercept;

@@ -28,11 +28,13 @@ import FaceBookExample from './src/tabscrollview/FacebookExample';
 import ScrollableTabsExample from './src/tabscrollview/ScrollableTabsExample';
 import OverlayExample from './src/tabscrollview/OverlayExample';
 import IndexExample from './src/tabscrollview/IndexExample';
+import SwiperExample from './src/SwiperExample';
+import FlatListExample from './src/FlatListExample';
 
 
 const AppNav = StackNavigator({
     Home: {screen: AppIndex},
-    AppList:{screen:AppList},
+    AppList: {screen: AppList},
     Camera: {screen: Camera},
     Animation: {screen: Animations},
     TabLayout: {screen: TabLayout},
@@ -44,8 +46,9 @@ const AppNav = StackNavigator({
     FaceBookExample: {screen: FaceBookExample},
     ScrollableTabsExample: {screen: ScrollableTabsExample},
     OverlayExample: {screen: OverlayExample},
-    IndexExample: {screen: IndexExample}
-
+    IndexExample: {screen: IndexExample},
+    SwiperExample: {screen: SwiperExample},
+    FlatListExample :{screen:FlatListExample}
 
 }, {
     initialRouteName: 'Home',

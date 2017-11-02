@@ -4,7 +4,10 @@
 
 import React, {Component} from 'react';
 
-import {View, Dimensions, Text, ScrollView, TouchableOpacity, ViewPagerAndroid,Image} from 'react-native';
+import {
+    View, Dimensions, Text, ScrollView, TouchableOpacity, ViewPagerAndroid, Image, Modal,
+    TouchableHighlight
+} from 'react-native';
 
 const screenW = Dimensions.get('window').width;
 const screenH = Dimensions.get('window').height;
@@ -28,7 +31,7 @@ class Tab extends Component {
 
         let selectedIndex = this.props.selectedIndex;
 
-        let select = 1;
+        let select = this.props.select;
 
         let views = [];
 
@@ -36,17 +39,12 @@ class Tab extends Component {
 
 
             let view = (
-                <TouchableOpacity key={index} onPress={() => {
-                    select(index)
-                }
-                }>
+                <TouchableOpacity key={index} onPress={() => {select(index)}}>
                     <View style={{alignItems: 'center'}}>
                         <Text style={{margin: 10, fontSize: selectedIndex === index ? 18 : 15,}}>{item}</Text>
 
                         {selectedIndex === index ? (
                             <View style={{width: 20, height: 2, backgroundColor: 'black'}}/>) : (<View/>)}
-
-
                     </View>
                 </TouchableOpacity>
             );
@@ -112,13 +110,15 @@ export default class TabLayout extends Component {
     };
 
 
+
+
     render() {
         return <View>
             <Tab selectedIndex={this.state.selectedIndex}
                  select={(index) => this._onPageSelected(index)}/>
             <Carousel
                 ref='Carousel'
-                swipe={false}
+                swipe={true}
                 autoplay={false}
                 style={{width: screenW, height: screenH}}
                 onAnimateNextPage={(p) => this._onPageChange(p)}
@@ -149,7 +149,9 @@ export default class TabLayout extends Component {
 
 
                     </Carousel>
+
                     <Text>{items[0]}</Text>
+
 
                 </View>
                 <View style={{

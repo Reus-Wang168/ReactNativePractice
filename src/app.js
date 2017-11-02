@@ -218,12 +218,42 @@ export default class app extends Component {
 
                             </View>
 
-
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='ProductDetail'
+                                    onPress={() => {
+                                        this._goToPage('ProductDetail')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='FlatListExample'
+                                    onPress={() => {
+                                        this._goToPage('FlatListExample')
+                                    }}
+                                />
+                            </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
                                     title='tab-scrollable-view-index'
                                     onPress={() => {
                                         this._goToPage('IndexExample')
+                                    }}
+                                />
+                            </View>
+
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='Animations'
+                                    onPress={() => this._goToPage('Animation')}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='SwiperExample'
+                                    onPress={() => {
+                                        this._goToPage('SwiperExample')
                                     }}
                                 />
                             </View>
@@ -235,14 +265,7 @@ export default class app extends Component {
                                     }}
                                 />
                             </View>
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='ProductDetail'
-                                    onPress={() => {
-                                        this._goToPage('ProductDetail')
-                                    }}
-                                />
-                            </View>
+
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
                                     title='AppList'
@@ -264,13 +287,6 @@ export default class app extends Component {
                                 <Button
                                     title='ShowDeviceInfo'
                                     onPress={this._showDeviceInfo}
-                                />
-                            </View>
-
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='Animations'
-                                    onPress={() => this._goToPage('Animation')}
                                 />
                             </View>
 

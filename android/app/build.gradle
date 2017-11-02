@@ -141,6 +141,8 @@ dependencies {
     // From node_modules
     compile project(':react-native-linear-gradient')
     compile project(':react-native-vector-icons')
+    compile 'com.orhanobut:logger:2.1.1'
+    compile project(':react-native-custom-scrollview')
 }
 
 // Run this once to be able to run the application with BUCK
