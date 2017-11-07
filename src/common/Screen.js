@@ -15,7 +15,7 @@ const object = {
     width:width,
     height:height,
     pxWidth:pxWidth
-}
+};
 
 export default object;
 

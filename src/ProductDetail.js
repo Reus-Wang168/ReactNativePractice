@@ -27,7 +27,6 @@ let data = require('./localdata/product.json');
 let dataMatch = require('./localdata/prodMatch.json');
 
 
-import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
 import LinearGradient from "react-native-linear-gradient";
 
 import CountTag from './component/CountTag';

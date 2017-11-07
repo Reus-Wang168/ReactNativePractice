@@ -27,6 +27,8 @@ const px2pt = (px) => PixelRatio.roundToNearestPixel(px);
 import {PullView} from 'react-native-pull';
 
 import ImagePicker from 'react-native-image-crop-picker';
+import Api from "./Api";
+import FetchRequest from "./FetchRequest";
 
 export default class app extends Component {
 
@@ -175,6 +177,42 @@ export default class app extends Component {
         this.props.navigation.navigate(params);
     };
 
+    _apiTest = () => {
+        // Api.Get("http://cybershop4-dev-restapi.dev.co-mall/products/search?pn=1&ps=12&s=1", null, this._success, this._error)
+
+        let url = '/products/search?';
+
+        let param = {
+            // "merchantId": "1",
+            "pn": "1",
+            "ps": "12",
+            "s": "1"
+            //"subsiteId": "1",
+            // "osVersion":"10.0",
+            // "appVersion":"1.0.0",
+            // "unique":"1111111111"
+        }
+
+
+
+        let info = FetchRequest.fetchRequest(url,'get',param);
+
+        info.then(
+            (resData) => {
+                console.log('data=' + resData);
+
+            }).catch()
+
+    };
+
+    _success = (resData) => {
+        console.log("success: " + resData);
+    };
+
+    _error = (error) => {
+        console.log("error: " + error)
+    };
+
 
     render() {
         return (
@@ -182,7 +220,7 @@ export default class app extends Component {
                 <PullView
                     style={{width: Dimensions.get('window').width}} onPullRelease={this.onPullRelease}
                     topIndicatorRender={this.topIndicatorRender} topIndicatorHeight={60}>
-                    <View style={{backgroundColor: '#31cd96'}}>
+                    <View style={{backgroundColor: 'white'}}>
 
 
                         <Image
@@ -192,12 +230,11 @@ export default class app extends Component {
                             }}/>
 
 
-                        <View style={{flex: 1, marginTop: 50, width: Dimensions.get('window').width}}>
+                        <View style={{flex: 1, marginTop: 10, width: Dimensions.get('window').width}}>
 
+                            <View style={{borderRadius: 5, borderWidth: 1, borderColor: '#31cd96', margin: 10}}>
 
-                            <View style={{borderRadius: 5, borderWidth: 1, borderColor: 'white', margin: 10}}>
-
-                                <Text style={{fontSize: 18, color: 'white', margin: 10}}>
+                                <Text style={{fontSize: 18, color: 'black', margin: 10}}>
                                     window.width={width + " dp\n"}
                                     window.height={height + " dp\n"}
                                     pixelRatio={pixelRatio + "\n"}
@@ -218,6 +255,12 @@ export default class app extends Component {
 
                             </View>
 
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='ApiTest'
+                                    onPress={this._apiTest}
+                                />
+                            </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
                                     title='ProductDetail'
