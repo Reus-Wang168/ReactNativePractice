@@ -7,7 +7,7 @@ import {View, Dimensions, Text, ScrollView} from 'react-native';
 
 const {width, height} = Dimensions.get('window');
 
-import CustomScrollView from './CustomScrollView';
+import CustomScrollView from 'react-native-custom-scrollview';
 
 
 class UpView extends Component {

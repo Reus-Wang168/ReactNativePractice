@@ -21,7 +21,7 @@ import Swiper from 'react-native-swiper';
 import Screen from './common/Screen';
 import common from './common/common';
 
-import CustomScrollView from './CustomScrollView';
+import CustomScrollView from 'react-native-custom-scrollview';
 
 let data = require('./localdata/product.json');
 let dataMatch = require('./localdata/prodMatch.json');
@@ -262,7 +262,9 @@ export default class ProductDetail extends Component {
 
                     <View style={{flex: 1, width: Screen.width}}>
 
-						<CustomScrollView>
+						<CustomScrollView onStatus={(event)=>{
+                            console.log("CustomScrollView Status=" + event.nativeEvent.status);
+                        }}>
 
                         <ScrollView contentContainerStyle={{width: Screen.width}}
                                     onScroll={this._onContentScroll}>

@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import sample.tencent.com.customscrollview.CustomScrollView;
-
 /**
  * Created by Rookie on 2017/8/28.
  */
@@ -30,7 +28,6 @@ public class CustomPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Arrays.<ViewManager>asList(new ReactMyViewPagerManager(),
-                new CustomScrollView());
+        return Arrays.<ViewManager>asList(new ReactMyViewPagerManager());
     }
 }
