@@ -16,7 +16,6 @@ import AppIndex from './src/app';
 import AppList from './src/appList';
 import Camera from './src/BadInstagramCloneApp';
 import Animations from './src/AnimationsPage';
-import TabLayout from './src/TabLayout';
 import MyViewPager from './src/MyViewPager';
 import MyScrollViewPage from './src/MyScrollViewPage';
 import ProductDetail from './src/ProductDetail';
@@ -37,7 +36,6 @@ const AppNav = StackNavigator({
     AppList: {screen: AppList},
     Camera: {screen: Camera},
     Animation: {screen: Animations},
-    TabLayout: {screen: TabLayout},
     MyViewPager: {screen: MyViewPager},
     MyScrollViewPage: {screen: MyScrollViewPage},
     ProductDetail: {screen: ProductDetail},

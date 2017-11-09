@@ -1,20 +1,22 @@
 /**
  * Created by Rookie on 2017/10/27.
  */
-import React, {Component} from 'react';
+import React, {Component,PropTypes} from 'react';
 import {
     StyleSheet,
     View,
     Dimensions,
-    Text
+    Text,
+
 } from 'react-native';
+
 
 const {width, height} = Dimensions.get('window');
 
 export default class CountTag extends Component {
     //属性声名
     static propTypes = {
-        text: React.PropTypes.any
+        text: React.PropTypes
     };
     //默认属性
     static defaultProps = {

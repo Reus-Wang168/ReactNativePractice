@@ -21,7 +21,7 @@ import Swiper from 'react-native-swiper';
 import Screen from './common/Screen';
 import common from './common/common';
 
-import CustomScrollView from 'react-native-custom-scrollview';
+import CustomScrollView from 'react-native-cm-custom-scrollview';
 
 let data = require('./localdata/product.json');
 let dataMatch = require('./localdata/prodMatch.json');
@@ -100,6 +100,12 @@ class Tab extends Component {
     }
 }
 
+
+
+
+
+
+
 export default class ProductDetail extends Component {
 
     constructor(props) {
@@ -110,7 +116,7 @@ export default class ProductDetail extends Component {
             dataMatch: dataMatch,
             properties: [],
             opacity: new Animated.Value(0),
-            showSwiper: false,
+            showSwiper: true,
             selectedIndex: 0,
             scrollY: 0,
             modalVisible: false,
@@ -152,15 +158,15 @@ export default class ProductDetail extends Component {
         });
 
 
-        this.timer = setTimeout(
-            () => {
-                console.log('timer is here');
-                this.setState({
-                    showSwiper: true,
-                })
-            },
-            500
-        );
+        // this.timer = setTimeout(
+        //     () => {
+        //         console.log('timer is here');
+        //         this.setState({
+        //             showSwiper: true,
+        //         })
+        //     },
+        //     500
+        // );
 
     }
 
@@ -262,12 +268,8 @@ export default class ProductDetail extends Component {
 
                     <View style={{flex: 1, width: Screen.width}}>
 
-						<CustomScrollView onStatus={(event)=>{
-                            console.log("CustomScrollView Status=" + event.nativeEvent.status);
-                        }}>
-
-                        <ScrollView contentContainerStyle={{width: Screen.width}}
-                                    onScroll={this._onContentScroll}>
+                        <CustomScrollView upChildren={<View contentContainerStyle={{width: Screen.width}}
+                                                            onScroll={this._onContentScroll}>
 
                             {this.state.showSwiper ? (<Swiper
                                 loop={false}
@@ -374,18 +376,9 @@ export default class ProductDetail extends Component {
                                 <Text>到底了</Text>
                             </View>
 
-                        </ScrollView>
-						<ScrollView>
-							<Text>111111</Text>
-							<Text>111111</Text>
-							<Text>111111</Text>
-							<Text>111111</Text>
-							<Text>111111</Text>
-							<Text>111111</Text>
-							<Text>111111</Text>
-							<Text>111111</Text>
-						</ScrollView>
-						</CustomScrollView>
+                        </View>} downChildren={<Text/>}>
+
+                        </CustomScrollView>
                     </View>
 
                     <View style={{
