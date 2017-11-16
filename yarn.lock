@@ -3464,7 +3464,7 @@ react-native-tab-view@^0.0.67:
 
 react-native-vector-icons@^4.4.2:
   version "4.4.2"
-  resolved "http://registry.npm.taobao.org/react-native-vector-icons/download/react-native-vector-icons-4.4.2.tgz#090f42ee0396c4cc4eae0ddaa518028ba8df40c7"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.4.2.tgz#090f42ee0396c4cc4eae0ddaa518028ba8df40c7"
   dependencies:
     lodash "^4.0.0"
     prop-types "^15.5.10"

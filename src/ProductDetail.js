@@ -31,6 +31,8 @@ import LinearGradient from "react-native-linear-gradient";
 
 import CountTag from './component/CountTag';
 
+import HorizontalScrollView from './HorizontalScrollView';
+
 let bannerImgs = [];
 let items = ['商品', '详情', '评论'];
 
@@ -99,11 +101,6 @@ class Tab extends Component {
         </ScrollView>)
     }
 }
-
-
-
-
-
 
 
 export default class ProductDetail extends Component {
@@ -262,13 +259,25 @@ export default class ProductDetail extends Component {
             <View style={{flex: 1, backgroundColor: 'white'}}>
 
 
-                <ViewPagerAndroid style={{flex: 1}} ref="ViewPagerAndroid" initialPage={0} peekEnabled={true}
-                                  onPageSelected={(e) => this._onPageChange(e)}>
+                <HorizontalScrollView initialPage={0}
+                    // // style={{width: width, height: height}}
+                                      scrollEnabled={true}
+                                      onPageSelected={(obj) => {
+                                          //console.log('index:' + obj.i);
+
+                                          let index = obj;
+                                          this.setState({
+                                              topIndex: index,
+                                              one: index ? false : true,
+                                          })
+                                      }}
+                >
 
 
                     <View style={{flex: 1, width: Screen.width}}>
 
-                        <CustomScrollView upChildren={<View contentContainerStyle={{width: Screen.width}}
+                        <CustomScrollView upChildren={
+                            <View contentContainerStyle={{width: Screen.width}}
                                                             onScroll={this._onContentScroll}>
 
                             {this.state.showSwiper ? (<Swiper
@@ -396,7 +405,7 @@ export default class ProductDetail extends Component {
                     }}>
                         <Text>{items[2]}</Text>
                     </View>
-                </ViewPagerAndroid>
+                </HorizontalScrollView>
 
 
                 <Animated.View style={{

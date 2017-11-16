@@ -19,6 +19,8 @@ import Animations from './src/AnimationsPage';
 import MyViewPager from './src/MyViewPager';
 import MyScrollViewPage from './src/MyScrollViewPage';
 import ProductDetail from './src/ProductDetail';
+import VectorIcons from './src/VectorIconsPage';
+
 
 
 import SimpleExample from './src/tabscrollview/SimpleExample';
@@ -46,7 +48,8 @@ const AppNav = StackNavigator({
     OverlayExample: {screen: OverlayExample},
     IndexExample: {screen: IndexExample},
     SwiperExample: {screen: SwiperExample},
-    FlatListExample :{screen:FlatListExample}
+    FlatListExample: {screen: FlatListExample},
+    VectorIconsPage:{screen:VectorIcons},
 
 }, {
     initialRouteName: 'Home',

@@ -180,7 +180,7 @@ export default class app extends Component {
     _apiTest = () => {
         // Api.Get("http://cybershop4-dev-restapi.dev.co-mall/products/search?pn=1&ps=12&s=1", null, this._success, this._error)
 
-        let url = '/products/search?';
+        let url = '/api/products/search?';
 
         let param = {
             // "merchantId": "1",
@@ -194,8 +194,7 @@ export default class app extends Component {
         }
 
 
-
-        let info = FetchRequest.fetchRequest(url,'get',param);
+        let info = FetchRequest.fetchRequest(url, 'get', param);
 
         info.then(
             (resData) => {
@@ -259,6 +258,14 @@ export default class app extends Component {
                                 <Button
                                     title='ApiTest'
                                     onPress={this._apiTest}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='VectorIconsPage'
+                                    onPress={() => {
+                                        this._goToPage('VectorIconsPage')
+                                    }}
                                 />
                             </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>

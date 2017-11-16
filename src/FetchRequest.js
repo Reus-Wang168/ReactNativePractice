@@ -9,65 +9,64 @@ import {Platform} from 'react-native';
 
 let stateCode = {
     unknownException: '1',     // 未知异常
-    notLogin:         '3',     // 用户未登录
-    decryptFail:      '5',     // 解密失败
-    networkAnomaly:   'C1',    // 网络异常
-    abortRequest:     'C2',    // 请求被中止
+    notLogin: '3',     // 用户未登录
+    decryptFail: '5',     // 解密失败
+    networkAnomaly: 'C1',    // 网络异常
+    abortRequest: 'C2',    // 请求被中止
     serviceException: 'C3',    // 当调用接口时，响应异常状态码
-    payFailed:        'C4',    // 支付失败
-    payCanceled:      'C5',    // 取消支付
-    paySuccess:       'C6',    // 支付成功
+    payFailed: 'C4',    // 支付失败
+    payCanceled: 'C5',    // 取消支付
+    paySuccess: 'C6',    // 支付成功
     notInstalledWechat: 'C7',  // 没有安装微信应用
 
     applePayNotSupport: 'C8',  // 不支持 Apple Pay
-    applePayFailure:    'C9',  // 使用 Apple Pay 支付失败
-    applePayCancel:     'C10'   // 使用 Apple Pay 时取消支付
+    applePayFailure: 'C9',  // 使用 Apple Pay 支付失败
+    applePayCancel: 'C10'   // 使用 Apple Pay 时取消支付
 };
 
 
 function getStateCode(text) {
 
     let message;
-    switch (text)
-    {
+    switch (text) {
         case stateCode.unknownException:
-            message="未知异常";
+            message = "未知异常";
             break;
         case stateCode.notLogin:
-            message="用户未登录";
+            message = "用户未登录";
             break;
         case stateCode.decryptFail:
-            message="解密失败";
+            message = "解密失败";
             break;
         case stateCode.networkAnomaly:
-            message="网络异常";
+            message = "网络异常";
             break;
         case stateCode.abortRequest:
-            message="请求被中止";
+            message = "请求被中止";
             break;
         case stateCode.serviceException:
-            message="状态码异常";
+            message = "状态码异常";
             break;
         case stateCode.payFailed:
-            message="支付失败";
+            message = "支付失败";
             break;
         case stateCode.payCanceled:
-            message="取消支付";
+            message = "取消支付";
             break;
         case stateCode.paySuccess:
-            message="支付成功";
+            message = "支付成功";
             break;
         case stateCode.notInstalledWechat:
-            message="没有安装微信应用";
+            message = "没有安装微信应用";
             break;
         case stateCode.applePayNotSupport:
-            message="不支持 Apple Pay";
+            message = "不支持 Apple Pay";
             break;
         case stateCode.applePayFailure:
-            message="使用 Apple Pay 支付失败";
+            message = "使用 Apple Pay 支付失败";
             break;
         case stateCode.applePayCancel:
-            message="使用 Apple Pay 时取消支付";
+            message = "使用 Apple Pay 时取消支付";
             break;
     }
 
@@ -84,8 +83,7 @@ let common_url = 'http://cybershop4-dev-restapi.dev.co-mall';  //服务器地址
  * @param {number} [timeout=10000]   单位：毫秒，这里设置默认超时时间为10秒
  * @return 返回Promise
  */
-function timeout_fetch(fetch_promise, timeout = 20000)
-{
+function timeout_fetch(fetch_promise, timeout = 20000) {
     let timeout_fn = null;
 
     //这是一个可以被reject的promise
@@ -109,19 +107,18 @@ function timeout_fetch(fetch_promise, timeout = 20000)
 }
 
 
-
 const FetchRequest = {
 
-/**
- * @param {string} url 接口地址
- * @param {string} method 请求方法：GET、POST，只能大写
- * @param {JSON} [params=''] body的请求参数，默认为空
- * @return 返回Promise
- */
-     fetchRequest:function(url, method, params = '') {
+    /**
+     * @param {string} url 接口地址
+     * @param {string} method 请求方法：GET、POST，只能大写
+     * @param {JSON} [params=''] body的请求参数，默认为空
+     * @return 返回Promise
+     */
+    fetchRequest: function (url, method, params = '') {
 
         let header = {
-            appKey:'ef1fc57c13007e33',
+            appKey: 'ef1fc57c13007e33',
             // "Content-Type":"application/json",
             // os: Platform.OS === 'ios',
             // appVersion: Platform.OS === 'ios' ? DeviceInfo.getVersion() : '',
@@ -129,11 +126,11 @@ const FetchRequest = {
             // osVersion: Platform.OS === 'ios' ? DeviceInfo.getSystemVersion() : '',
             // userId:undefined,
             // userSession:undefined,
-             channel:"1",
+            // channel: "1",
             // language:2,
-            osVersion:"10.0",
-            appVersion:"1.0.0",
-            unique:"1111111111"
+            osVersion: "10.0",
+            appVersion: "1.0.0",
+            unique: "1111111111"
         };
         console.log('request url:', url, params);  //打印请求参数
         if (method !== 'Post') {
@@ -144,18 +141,21 @@ const FetchRequest = {
                 //拼接参数
                 Object.keys(params).forEach(key => paramsArray.push(key + '=' + params[key]))
                 if (url.search(/\?/) === -1) {
-                    url += '?' + paramsArray.join('&')
+                    url += '?'
                 } else {
-                    url += '&' + paramsArray.join('&')
+                    url += paramsArray.join('&')
                 }
             }
-            console.log('url===='+url);
+            console.log('url====' + url);
             //如果网络请求中带有参数
             return new Promise(function (resolve, reject) {
-                timeout_fetch(fetch(common_url+url, {
+                timeout_fetch(fetch(common_url + url, {
                     method: method,
                     headers: header,
-                })).then((response) => response.json())
+                })).then((response) => {
+                    console.log("response==" + response);
+                    response.json();
+                })
                     .then((responseData) => {
                         console.log('res:', url, responseData);  //网络请求成功返回的数据
                         resolve(responseData);
@@ -167,11 +167,14 @@ const FetchRequest = {
             });
         } else {   //如果网络请求中没有参数
             return new Promise(function (resolve, reject) {
-               timeout_fetch(fetch(common_url + url, {
+                timeout_fetch(fetch(common_url + url, {
                     method: method,
                     headers: header,
                     body: JSON.stringify(params)   //body参数，通常需要转换成字符串后服务器才能解析
-                })).then((response) => response.json())
+                })).then((response) => {
+                    console.log("response==" + response);
+                    response.json();
+                })
                     .then((responseData) => {
                         console.log('res:', url, responseData);   //网络请求成功返回的数据
                         resolve(responseData);
