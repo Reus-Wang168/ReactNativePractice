@@ -3,6 +3,7 @@ package com.hellorn;
 import android.app.Application;
 
 import com.BV.LinearGradient.LinearGradientPackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import com.facebook.react.ReactApplication;
 import com.rookie.customscrollview.CustomScrollViewPackage;
 import com.facebook.react.ReactNativeHost;
@@ -33,6 +34,7 @@ public class MainApplication extends Application implements ReactApplication {
                     new PickerPackage(),
                     new VectorIconsPackage(),
                     new LinearGradientPackage(),
+                    new RNFetchBlobPackage(),
                     new RCTCameraPackage());
         }
     };

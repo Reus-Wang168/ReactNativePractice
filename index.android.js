@@ -22,7 +22,6 @@ import ProductDetail from './src/ProductDetail';
 import VectorIcons from './src/VectorIconsPage';
 
 
-
 import SimpleExample from './src/tabscrollview/SimpleExample';
 import DynamicExample from './src/tabscrollview/DynamicExample';
 import FaceBookExample from './src/tabscrollview/FacebookExample';
@@ -31,6 +30,7 @@ import OverlayExample from './src/tabscrollview/OverlayExample';
 import IndexExample from './src/tabscrollview/IndexExample';
 import SwiperExample from './src/SwiperExample';
 import FlatListExample from './src/FlatListExample';
+import ImgCachePage from './src/ImgCachePage';
 
 
 const AppNav = StackNavigator({
@@ -49,7 +49,9 @@ const AppNav = StackNavigator({
     IndexExample: {screen: IndexExample},
     SwiperExample: {screen: SwiperExample},
     FlatListExample: {screen: FlatListExample},
-    VectorIconsPage:{screen:VectorIcons},
+    VectorIconsPage: {screen: VectorIcons},
+    ImgCachePage:{screen:ImgCachePage}
+
 
 }, {
     initialRouteName: 'Home',

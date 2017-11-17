@@ -262,6 +262,14 @@ export default class app extends Component {
                             </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
+                                    title='ImgCachePage'
+                                    onPress={() => {
+                                        this._goToPage('ImgCachePage')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
                                     title='VectorIconsPage'
                                     onPress={() => {
                                         this._goToPage('VectorIconsPage')
