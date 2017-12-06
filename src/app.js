@@ -27,7 +27,6 @@ const px2pt = (px) => PixelRatio.roundToNearestPixel(px);
 import {PullView} from 'react-native-pull';
 
 import ImagePicker from 'react-native-image-crop-picker';
-import Api from "./Api";
 import FetchRequest from "./FetchRequest";
 
 export default class app extends Component {
@@ -258,6 +257,30 @@ export default class app extends Component {
                                 <Button
                                     title='ApiTest'
                                     onPress={this._apiTest}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='StyledcomponentsPage'
+                                    onPress={() => {
+                                        this._goToPage('StyledcomponentsPage')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='ModalPage'
+                                    onPress={() => {
+                                        this._goToPage('ModalPage')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='IconLoaderPage'
+                                    onPress={() => {
+                                        this._goToPage('IconLoaderPage')
+                                    }}
                                 />
                             </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>

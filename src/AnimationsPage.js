@@ -3,35 +3,48 @@
  */
 
 import React, {Component} from 'react';
-import {View, Animated, Text, TouchableOpacity, TouchableHighlight, Modal} from 'react-native';
+import {View, Animated, Text, TouchableOpacity, TouchableHighlight, Modal, Easing, ToastAndroid} from 'react-native';
 
 import Screen from './common/Screen';
+
 
 class AnimView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fadeAnim: new Animated.Value(0),          // 透明度初始值设为0
-            scaleAnim: new Animated.Value(1),
-            colorAnim: 'red',
+            fadeAnim: new Animated.Value(0.5),          // 透明度初始值设为0
+            scaleAnim: new Animated.Value(0),
             modalVisible: false,
         };
     }
 
+
     componentDidMount() {
-        Animated.timing(                            // 随时间变化而执行的动画类型
-            this.state.fadeAnim,                      // 动画中的变量值
-            {
-                toValue: 1,                             // 透明度最终变为1，即完全不透明
-            },
-            this.state.scaleAnim,
-            {
-                toValue: 100,
-            },
-            this.state.colorAnim, {
-                toValue: 'green'
-            },
-        ).start();                                  // 开始执行动画
+
+        Animated.sequence([
+            Animated.timing(                            // 随时间变化而执行的动画类型
+
+                this.state.scaleAnim,
+                {
+                    toValue: 1,
+                    useNativeDriver: true,
+                    duration: 2000,
+                    easing: Easing.bounce
+                },
+            ),
+            Animated.timing(
+                this.state.fadeAnim,
+                {
+                    toValue: 1,
+                    useNativeDriver: true,
+                    duration: 200,
+                    easing: Easing.linear
+                }
+            )
+        ]).start();
+
+
+        // 开始执行动画
     }
 
     setModalVisible(visible) {
@@ -39,19 +52,30 @@ class AnimView extends Component {
     }
 
     render() {
+
+        const y = this.state.scaleAnim.interpolate({
+            inputRange: [0, 1],
+            outputRange: [0, Screen.height - 200]
+        });
+
         return (
-            <View style={{flex: 1}}>
+
+
+
+
+
+            < View style={{height: Screen.height}}>
 
                 <Animated.View                            // 可动画化的视图组件
                     style={{
                         ...this.props.style,
                         opacity: this.state.fadeAnim, // 将透明度指定为动画变量值
-                        marginTop: this.state.scaleAnim,
-                        backgroundColor: this.state.colorAnim,
+                        transform: [{translateY: y}],
                     }}
                 >
                     {this.props.children}
                 </Animated.View>
+
 
                 <TouchableHighlight style={{position: 'absolute', right: 10, top: 10}} onPress={() => {
                     this.setModalVisible(true)
@@ -137,8 +161,8 @@ class AnimView extends Component {
 export default class AnimationsPage extends Component {
     render() {
         return (
-            <View ref="anims" style={{flex: 1, backgroundColor: '#03a9f4'}}>
-                <AnimView style={{width: 250, height: 50,}}>
+            <View ref="anims" style={{flex: 1, backgroundColor: '#03a9f4', alignItems: 'center'}}>
+                <AnimView style={{width: 100, height: 100, borderRadius: 50, backgroundColor: 'red'}}>
                     <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>Fading in</Text>
                 </AnimView>
             </View>

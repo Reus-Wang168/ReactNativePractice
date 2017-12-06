@@ -3,6 +3,7 @@ package com.hellorn.custom.params;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.facebook.react.ReactRootView;
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -22,6 +23,8 @@ public class CustomParamsMoudle extends ReactContextBaseJavaModule implements Ac
     private Promise mPromise;
 
     DeviceInfoModule mDeviceInfoModule;
+
+    ReactRootView mReactRootView;
 
     public CustomParamsMoudle(ReactApplicationContext reactContext) {
         super(reactContext);

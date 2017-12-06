@@ -6,6 +6,7 @@
 
 import React, {Component} from 'react';
 import {
+    AppConfig,
     AppRegistry,
 } from 'react-native';
 
@@ -27,10 +28,14 @@ import DynamicExample from './src/tabscrollview/DynamicExample';
 import FaceBookExample from './src/tabscrollview/FacebookExample';
 import ScrollableTabsExample from './src/tabscrollview/ScrollableTabsExample';
 import OverlayExample from './src/tabscrollview/OverlayExample';
+import DefaultTabBarPage from './src/tabscrollview/DefaultTabBarPage';
 import IndexExample from './src/tabscrollview/IndexExample';
 import SwiperExample from './src/SwiperExample';
 import FlatListExample from './src/FlatListExample';
 import ImgCachePage from './src/ImgCachePage';
+import IconLoader from './src/IconLoaderPage';
+import ModalPage from './src/ModalPage';
+import StyledcomponentsPage from './src/StyledcomponentsPage';
 
 
 const AppNav = StackNavigator({
@@ -44,13 +49,17 @@ const AppNav = StackNavigator({
     SimpleExample: {screen: SimpleExample},
     DynamicExample: {screen: DynamicExample},
     FaceBookExample: {screen: FaceBookExample},
+    DefaultTabBarPage: {screen: DefaultTabBarPage},
     ScrollableTabsExample: {screen: ScrollableTabsExample},
     OverlayExample: {screen: OverlayExample},
     IndexExample: {screen: IndexExample},
     SwiperExample: {screen: SwiperExample},
     FlatListExample: {screen: FlatListExample},
     VectorIconsPage: {screen: VectorIcons},
-    ImgCachePage:{screen:ImgCachePage}
+    ImgCachePage: {screen: ImgCachePage},
+    IconLoaderPage: {screen: IconLoader},
+    ModalPage: {screen: ModalPage},
+    StyledcomponentsPage: {screen: StyledcomponentsPage},
 
 
 }, {

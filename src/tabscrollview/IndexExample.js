@@ -26,6 +26,14 @@ export default class IndexExample extends Component {
             </View>
             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                 <Button
+                    title='DefaultTabBarPage'
+                    onPress={() => {
+                        this._goToPage('DefaultTabBarPage')
+                    }}
+                />
+            </View>
+            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                <Button
                     title='DynamicExample'
                     onPress={() => {
                         this._goToPage('DynamicExample')

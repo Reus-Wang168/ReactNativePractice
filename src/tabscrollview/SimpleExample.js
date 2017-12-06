@@ -27,10 +27,10 @@ export default class SimpleExample extends Component {
         return <ScrollableTabView
             style={{marginTop: 20,}}
             initialPage={1}
-            renderTabBar={() => <DefaultTabBar/>}
+            renderTabBar={() => <DefaultTabBar underlineStyle={{backgroundColor:'transparent'}}/>}
         >
 
-            <View tabLabel='Tab #1' style={{flex: 1, backgroundColor: 'white'}}>
+            <View tabLabel='销量' style={{flex: 1, backgroundColor: 'white'}}>
                 <View style={{width: screenW, height: screenH / 3}}>
                     <Swiper
                         loop={false}
@@ -80,8 +80,9 @@ export default class SimpleExample extends Component {
 
                 </View>
             </View>
-            <Text tabLabel='Tab #2'>favorite</Text>
-            <Text tabLabel='Tab #3'>project</Text>
+            <Text tabLabel='价格'>favorite</Text>
+            <Text tabLabel='上架时间'>project</Text>
+            <Text tabLabel='筛选'>project</Text>
         </ScrollableTabView>;
     }
 }
