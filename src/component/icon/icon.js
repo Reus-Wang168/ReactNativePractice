@@ -2,12 +2,11 @@ import React, {Component} from 'react';
 import {Image} from 'react-native';
 
 import PropTypes from 'prop-types'
-import Images from './Images';
 
 
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icons from 'react-native-vector-icons/Ionicons';
 
-export default class IconLoader extends Component {
+export default class Icon extends Component {
 
 
     constructor(props) {
@@ -21,7 +20,7 @@ export default class IconLoader extends Component {
     };
 
     static defaultProps = {
-        name: 'ios-share',
+        name: '',
         size: 12,
     };
 
@@ -34,7 +33,7 @@ export default class IconLoader extends Component {
         if (Images[name]) {
             return (<Image source={Images[name]} style={[{width: size, height: size}, this.props.style]}/>)
         } else {
-            return (<Icon name={name} size={size} color={color} style={this.props.style}/>)
+            return (<Icons name={name} size={size} color={color} style={this.props.style}/>)
         }
     }
 }
