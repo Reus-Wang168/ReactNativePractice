@@ -37,6 +37,9 @@ import IconLoader from './src/IconLoaderPage';
 import ModalPage from './src/ModalPage';
 import StyledcomponentsPage from './src/StyledcomponentsPage';
 
+import styled, {ThemeProvider} from 'styled-components/native';
+
+import Images from './src/resource/Images';
 
 const AppNav = StackNavigator({
     Home: {screen: AppIndex},
@@ -69,5 +72,26 @@ const AppNav = StackNavigator({
     }
 });
 
+const theme = {
+    primaryColor: 'red',
 
-AppRegistry.registerComponent('HelloRN', () => AppNav);
+    icon: {
+        color: 'red',
+        small: '12',
+        middle: '24',
+        large: '36'
+    }
+};
+
+
+class RootView extends Component {
+    render() {
+        return (<ThemeProvider theme={theme}>
+                <AppNav/>
+            </ThemeProvider>
+        )
+    }
+}
+
+
+AppRegistry.registerComponent('HelloRN', () => RootView);

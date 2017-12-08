@@ -1,16 +1,14 @@
 package com.hellorn;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Binder;
 import android.os.Handler;
-import android.view.Gravity;
 import android.view.ViewManager;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.react.ReactActivity;
+import com.facebook.react.uimanager.ReactShadowNodeImpl;
 
 public class MainActivity extends ReactActivity {
 
@@ -19,6 +17,10 @@ public class MainActivity extends ReactActivity {
 
     Handler mHandler;
     AsyncTask mAsyncTask;
+
+    ReactShadowNodeImpl mReactShadowNode;
+
+    Binder mBinder;
 
     @Override
     public void startActivity(Intent intent) {

@@ -15,7 +15,7 @@ import {
 import {StyledScrollView, StyledTextInput, BeautyTextInput} from "./IconPageComponents";
 
 import IconLoader from './component/icon/icon';
-import styled from 'styled-components/native';
+import styled, {ThemeProvider} from 'styled-components/native';
 
 
 const StyledHorizontalView = styled.View`
@@ -64,7 +64,6 @@ export default class IconLoaderPage extends Component<{}> {
         return (
             <StyledScrollView>
                 <StyledView>
-
                     <StyledTextInput/>
                     <BeautyTextInput
                         multiline={true}
@@ -72,20 +71,15 @@ export default class IconLoaderPage extends Component<{}> {
                         placeholder={'please input something !'}
                         onChangeText={(text) => this._onChangeText(text)}
                     />
-
-
                     <StyledTitle>Icon !</StyledTitle>
-
-
                     <StyledTitle>Basic </StyledTitle>
-
                     <StyledHorizontalView>
-                        <StyledText>ios-share(iconfont)</StyledText> <IconLoader name={'ios-share'} size={55}/>
-                    </StyledHorizontalView>
-
-                    <StyledHorizontalView>
-                        <StyledText>ios-share(png)</StyledText>
+                        <StyledText>ios-share(iconfont)</StyledText>
                         <IconLoader name={'ios-share'} size={55}/>
+                    </StyledHorizontalView>
+                    <StyledHorizontalView>
+                        <StyledText>shares(png)</StyledText>
+                        <IconLoader name={'shares'} size={55}/>
                     </StyledHorizontalView>
 
 
@@ -107,6 +101,28 @@ export default class IconLoaderPage extends Component<{}> {
                     <StyledHorizontalView>
                         <StyledText>ios-share(small)</StyledText>
                         <IconLoader name={'md-share'} size={'small'}/>
+                    </StyledHorizontalView>
+
+                    <StyledHorizontalView>
+                        <StyledText>ios-share(default)</StyledText>
+                        <IconLoader name={'md-share'} />
+                    </StyledHorizontalView>
+
+                    <StyledHorizontalView>
+                        <StyledText>ios-share(large)</StyledText>
+                        <IconLoader name={'shares'} size={'large'}/>
+                    </StyledHorizontalView>
+
+
+                    <StyledHorizontalView>
+                        <StyledText>ios-share(middle)</StyledText>
+                        <IconLoader name={'shares'} size={'middle'}/>
+                    </StyledHorizontalView>
+
+
+                    <StyledHorizontalView>
+                        <StyledText>ios-share(small)</StyledText>
+                        <IconLoader name={'shares'} size={'small'}/>
                     </StyledHorizontalView>
 
 
@@ -131,7 +147,6 @@ export default class IconLoaderPage extends Component<{}> {
 
                 </StyledView>
             </StyledScrollView>
-
         );
     }
 }

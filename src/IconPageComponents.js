@@ -14,8 +14,9 @@ export const StyledTextInput = styled.TextInput`
 `;
 
 export const BeautyTextInput = StyledTextInput.extend`
-  border: 0px;
+  border: 0;
   font-size: 25px;
+  color:${props => props.theme.primaryColor}
 `;
 
 export const StyledScrollView = styled.ScrollView`margin-top: 10px;background: white`;

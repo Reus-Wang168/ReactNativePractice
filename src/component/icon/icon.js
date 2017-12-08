@@ -2,21 +2,60 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types'
 
+const ColorPropType = require('ColorPropType');
+const invariant = require('fbjs/lib/invariant');
 
 import Icons from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components/native';
 
 import Images from '../../resource/Images';
 
-const StyledImage = styled.Image``;
-const ColorPropType = require('ColorPropType');
+
+function getRealSize(props) {
+
+    console.log("the props==" + JSON.stringify(props));
+
+
+    switch (props.size) {
+        case 'large':
+            return props.theme.icon.large;
+            break;
+        case 'middle':
+            return props.theme.icon.middle;
+            break;
+        case 'small':
+            return props.theme.icon.small;
+            break;
+        default:
+            return props.size;
+            break;
+    }
+}
+
+
+const StyledImage = styled.Image`
+   height:${props => getRealSize(props)};
+   width:${props => getRealSize(props)};
+`;
+
+
+const StyledIcons =styled(Icons)`
+  size:${props=>getRealSize(props)}
+`;
 
 export default class Icon extends Component {
 
 
     constructor(props) {
         super(props);
+
+
+        console.log("the this  in constructor is ="+JSON.stringify(this));
+
+        console.log("the props in constructor is ="+JSON.stringify(props))
+
     }
+
 
     static propTypes = {
 
@@ -53,15 +92,21 @@ export default class Icon extends Component {
 
     static defaultProps = {
         name: '',
-        size: 'small',
-        color: 'gray'
-
+        size: 'middle',
+        color: 'gray',
     };
 
 
     render() {
 
         const {name, size, color} = this.props;
+
+        invariant(
+            typeof name==='string',
+            'name is required,must be string'
+        );
+
+
         let realSize;
         switch (size) {
             case 'small':
@@ -78,10 +123,10 @@ export default class Icon extends Component {
         }
 
 
-        console.log("the value of name==" + Images[name]);
+        // console.log("the value of name==" + Images[name]);
         if (Images[name]) {
             return (
-                <StyledImage source={Images[name]} style={[{width: realSize, height: realSize}, this.props.style]}/>)
+                <StyledImage source={Images[name]} style={this.props.style} size={size}/>)
         } else {
             return (<Icons name={name} size={realSize} color={color} style={this.props.style}/>)
         }
