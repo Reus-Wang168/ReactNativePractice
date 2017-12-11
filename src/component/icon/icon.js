@@ -8,27 +8,22 @@ const invariant = require('fbjs/lib/invariant');
 import Icons from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components/native';
 
-import Images from '../../resource/Images';
 
 
 function getRealSize(props) {
 
-    console.log("the props==" + JSON.stringify(props));
+    console.log("the props in styled ==" + JSON.stringify(props));
 
 
     switch (props.size) {
         case 'large':
             return props.theme.icon.large;
-            break;
         case 'middle':
             return props.theme.icon.middle;
-            break;
         case 'small':
             return props.theme.icon.small;
-            break;
         default:
             return props.size;
-            break;
     }
 }
 
@@ -39,8 +34,8 @@ const StyledImage = styled.Image`
 `;
 
 
-const StyledIcons =styled(Icons)`
-  size:${props=>getRealSize(props)}
+const StyledIcons = styled(Icons)`
+  size:${props => getRealSize(props)}
 `;
 
 export default class Icon extends Component {
@@ -50,9 +45,8 @@ export default class Icon extends Component {
         super(props);
 
 
-        console.log("the this  in constructor is ="+JSON.stringify(this));
 
-        console.log("the props in constructor is ="+JSON.stringify(props))
+        console.log("the props in constructor =" + JSON.stringify(props))
 
     }
 
@@ -102,7 +96,7 @@ export default class Icon extends Component {
         const {name, size, color} = this.props;
 
         invariant(
-            typeof name==='string',
+            typeof name === 'string',
             'name is required,must be string'
         );
 

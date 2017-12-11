@@ -39,7 +39,7 @@ import StyledcomponentsPage from './src/StyledcomponentsPage';
 
 import styled, {ThemeProvider} from 'styled-components/native';
 
-import Images from './src/resource/Images';
+import './src/resource/Images';
 
 const AppNav = StackNavigator({
     Home: {screen: AppIndex},
@@ -85,6 +85,12 @@ const theme = {
 
 
 class RootView extends Component {
+
+    constructor(props) {
+        super(props);
+        global.Images = Images;
+    }
+
     render() {
         return (<ThemeProvider theme={theme}>
                 <AppNav/>

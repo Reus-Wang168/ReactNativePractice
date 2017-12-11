@@ -5,14 +5,31 @@
 import React, {Component} from 'react';
 import {View, Text, FlatList, ScrollView} from 'react-native';
 
-const data = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
+import Icon from './component/icon/icon';
+
+const data = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
 
 class Header extends Component {
+
+
     render() {
-        return (<View style={{flex: 1}}>
+
+
+        let renderMyView = () => {
+            let views = [];
+
+            data.map((item, index) => {
+                let view = <Text key={index}>Header {item}</Text>
+                views.push(view)
+            });
+
+            return views;
+        };
+
+
+        return (<View style={{height: 200, backgroundColor: '#03A9F4'}}>
             <ScrollView contentContainerStyle={{alignItems: 'center'}}>
-                <Text style={{padding: 10, fontSize: 18, height: 44,}}>head</Text>
-                <Text style={{padding: 10, fontSize: 18, height: 44,}}>head</Text>
+                {renderMyView()}
             </ScrollView>
 
         </View>)
@@ -41,7 +58,11 @@ export default class FlatListExample extends Component {
 
     _keyExtractor = (item, index) => item;
     _renderItem = ({item}) => (
-        <Text style={{padding: 10, fontSize: 18, height: 44,}}>{item}</Text>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Text style={{padding: 10, fontSize: 18, height: 44, margin: 10}}>{item}</Text>
+            <Icon name={'ios-share'}/>
+        </View>
+
     );
     _onEndReached = ({info}) => {
         console.log("onEndReach===" + info);
