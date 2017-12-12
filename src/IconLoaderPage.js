@@ -31,9 +31,11 @@ const StyledText = styled.Text`
 `;
 
 const StyledView = styled.View`
-  align-items: center;
+  margin-left: 20px;
+  padding-bottom: 20px;
+  align-items: flex-start;
   justify-content: center;
-  background: whitesmoke;
+  background: white;
 `;
 
 
@@ -69,7 +71,7 @@ export default class IconLoaderPage extends Component<{}> {
 
 
         return (
-            <StyledScrollView>
+            <StyledScrollView showsVerticalScrollIndicator={false}>
                 <StyledView>
                     <StyledTextInput/>
                     <BeautyTextInput
@@ -90,45 +92,45 @@ export default class IconLoaderPage extends Component<{}> {
                     </StyledHorizontalView>
 
 
-                    <Text style={{color: 'black', margin: 10, fontSize: 22}}>Size </Text>
+                    <Text style={{color: 'black', margin: 10, fontSize: 32}}>Size </Text>
 
 
                     <StyledHorizontalView>
-                        <StyledText>ios-share(large)</StyledText>
+                        <StyledText>name={'md-share'} size={'large'}</StyledText>
                         <IconLoader name={'md-share'} size={'large'}/>
                     </StyledHorizontalView>
 
 
                     <StyledHorizontalView>
-                        <StyledText>ios-share(middle)</StyledText>
+                        <StyledText>name={'md-share'} size={'middle'}</StyledText>
                         <IconLoader name={'md-share'} size={'middle'}/>
                     </StyledHorizontalView>
 
 
                     <StyledHorizontalView>
-                        <StyledText>ios-share(small)</StyledText>
+                        <StyledText>name={'md-share'} size={'small'}</StyledText>
                         <IconLoader name={'md-share'} size={'small'}/>
                     </StyledHorizontalView>
 
                     <StyledHorizontalView>
-                        <StyledText>ios-share(default)</StyledText>
+                        <StyledText>name={'md-share'}(default)</StyledText>
                         <IconLoader name={'md-share'}/>
                     </StyledHorizontalView>
 
                     <StyledHorizontalView>
-                        <StyledText>ios-share(large)</StyledText>
+                        <StyledText>name={'shares'} size={'large'}</StyledText>
                         <IconLoader name={'shares'} size={'large'}/>
                     </StyledHorizontalView>
 
 
                     <StyledHorizontalView>
-                        <StyledText>ios-share(middle)</StyledText>
+                        <StyledText>name={'shares'} size={'middle'}</StyledText>
                         <IconLoader name={'shares'} size={'middle'}/>
                     </StyledHorizontalView>
 
 
                     <StyledHorizontalView>
-                        <StyledText>ios-share(small)</StyledText>
+                        <StyledText>name={'shares'} size={'small'}</StyledText>
                         <IconLoader name={'shares'} size={'small'}/>
                     </StyledHorizontalView>
 

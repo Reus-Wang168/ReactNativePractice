@@ -78,6 +78,9 @@ class Toast extends Component {
 
 
 export default class ModalPage extends Component {
+    static navigationOptions = ({navigation}) => ({
+        title: navigation.state.params.title
+    });
 
     constructor(props) {
         super(props);
@@ -90,16 +93,13 @@ export default class ModalPage extends Component {
         };
     }
 
-
     setModalVisible(show) {
-
         this.setState({
             modalVisible: show,
         })
-
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.timer && clearTimeout(this.timer);
     }
 
@@ -149,7 +149,7 @@ export default class ModalPage extends Component {
                 </View>
 
 
-                <View style={{marginLeft: 40, marginRight: 40, marginTop: 50}}>
+                <View style={{marginLeft: 40, marginRight: 40, marginTop: 20}}>
                     <TextInput
                         style={{fontSize: 22}}
                         onChangeText={
@@ -163,7 +163,7 @@ export default class ModalPage extends Component {
 
                     />
                 </View>
-                <View style={{marginLeft: 40, marginRight: 40, height: 80}}>
+                <View style={{marginLeft: 40, marginRight: 40, height: 20}}>
                     <Text>{this.state.inputText}</Text>
                 </View>
                 <View style={{marginLeft: 40, marginRight: 40, marginTop: 20}}>

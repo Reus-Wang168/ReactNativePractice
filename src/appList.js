@@ -14,7 +14,9 @@ import {
 import {PullList} from 'react-native-pull';
 
 export default class appList extends Component {
-
+    static navigationOptions = ({navigation}) => ({
+        title: navigation.state.params.title
+    });
     constructor(props) {
         super(props);
         this.dataSource = [{

@@ -32,7 +32,8 @@ import FetchRequest from "./FetchRequest";
 export default class app extends Component {
 
     static navigationOptions = {
-        title: 'React Native'
+        title: 'React Native Samples',
+        headerTitleStyle: {alignSelf: 'center'}
     };
 
     constructor(props) {
@@ -183,17 +184,19 @@ export default class app extends Component {
     _apiTest = () => {
         // Api.Get("http://cybershop4-dev-restapi.dev.co-mall/products/search?pn=1&ps=12&s=1", null, this._success, this._error)
 
-        fetch("https://api.github.com/users/mike")
-            .then((response) => {
-                    response.json();
-                    console.log("the response is "+JSON.stringify(response))
-            })
-            .then((responseJson) => (
-                console.log("json ==" + responseJson)
-            ))
-            .catch((error) => (
-                console.log("error ==" + error)
-            ));
+
+        fetch("http://gank.io/api/data/Android/10/1")
+            .then((response) => response.json())
+            .then((responseJson) => {
+                    console.log("json ==" + responseJson);
+                    ToastAndroid.show("success: " + responseJson.results[0].desc, ToastAndroid.SHORT);
+                }
+            )
+            .catch((error) => {
+                    console.log("error ==" + error)
+                    ToastAndroid.show(error, ToastAndroid.SHORT);
+                }
+            );
 
     };
 
@@ -212,13 +215,14 @@ export default class app extends Component {
         return (
             <View style={[styles.container]} ref='myview'>
                 <PullView
+                    showsVerticalScrollIndicator={false}
                     style={{width: Dimensions.get('window').width}} onPullRelease={this.onPullRelease}
                     topIndicatorRender={this.topIndicatorRender} topIndicatorHeight={60}>
                     <View style={{backgroundColor: 'white'}}>
 
 
                         <Image
-                            style={{width: Dimensions.get('window').width, height: 300}}
+                            style={{width: Dimensions.get('window').width, height: 200}}
                             source={{
                                 uri: this.state.photoUrl
                             }}/>
@@ -226,28 +230,6 @@ export default class app extends Component {
 
                         <View style={{flex: 1, marginTop: 10, width: Dimensions.get('window').width}}>
 
-                            <View style={{borderRadius: 5, borderWidth: 1, borderColor: '#31cd96', margin: 10}}>
-
-                                <Text style={{fontSize: 18, color: 'black', margin: 10}}>
-                                    window.width={width + " dp\n"}
-                                    window.height={height + " dp\n"}
-                                    pixelRatio={pixelRatio + "\n"}
-
-                                    分辨率={width * pixelRatio + "x" + height * pixelRatio}
-
-                                    {"\n\n"}
-                                    px2pt-width ={px2pt(300)}
-                                    {"\n\n"}
-                                    px2pt-height={px2pt(111)}
-                                    {"\n"}
-                                    pt2px-width={pt2px(width)}
-                                    {"\n"}
-                                    pt2px-height={pt2px(height)}
-
-
-                                </Text>
-
-                            </View>
 
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
@@ -351,14 +333,6 @@ export default class app extends Component {
                                     }}
                                 />
                             </View>
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='TabLayout'
-                                    onPress={() => {
-                                        this._goToPage('TabLayout')
-                                    }}
-                                />
-                            </View>
 
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
@@ -417,7 +391,28 @@ export default class app extends Component {
                                 />
                             </View>
 
+                            <View style={{borderRadius: 5, borderWidth: 1, borderColor: '#31cd96', margin: 10}}>
 
+                                <Text style={{fontSize: 18, color: 'black', margin: 10}}>
+                                    window.width={width + " dp"}
+                                </Text>
+                                <Text style={{fontSize: 18, color: 'black', margin: 10}}>
+                                    window.height={height + " dp"}
+                                </Text>
+                                <Text style={{fontSize: 18, color: 'black', margin: 10}}>
+                                    pixelRatio={pixelRatio}
+                                </Text>
+                                <Text style={{fontSize: 18, color: 'black', margin: 10}}>
+                                    分辨率={width * pixelRatio + "x" + height * pixelRatio}
+                                </Text>
+                                <Text style={{fontSize: 18, color: 'black', margin: 10}}>
+                                    px2pt-width ={px2pt(300)}
+                                    px2pt-height={px2pt(111)}
+                                    pt2px-width={pt2px(width)}
+                                    pt2px-height={pt2px(height)}
+                                </Text>
+
+                            </View>
                         </View>
                     </View>
                 </PullView>

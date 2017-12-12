@@ -19,4 +19,4 @@ export const BeautyTextInput = StyledTextInput.extend`
   color:${props => props.theme.primaryColor}
 `;
 
-export const StyledScrollView = styled.ScrollView`margin-top: 10px;background: white`;
+export const StyledScrollView = styled.ScrollView`background: white;padding-bottom: 20px`;

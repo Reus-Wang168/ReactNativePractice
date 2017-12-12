@@ -10,9 +10,9 @@ import styled from 'styled-components/native';
 
 const StyledView = styled.View`
   flex:1;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  background: seagreen;
+  background: #31cd96;
 `;
 
 const StyledText = styled.Text`
@@ -26,6 +26,7 @@ export default class StyledcomponentsPage extends Component {
     static navigationOptions = ({navigation}) => ({
         title: navigation.state.params.title
     });
+
     render() {
         return (<StyledView>
             <StyledText>11111111111111</StyledText>

@@ -45,6 +45,9 @@ class Footer extends Component {
 }
 
 export default class FlatListExample extends Component {
+    static navigationOptions = ({navigation}) => ({
+        title: navigation.state.params.title
+    });
 
     constructor(props) {
         super(props);

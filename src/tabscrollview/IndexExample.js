@@ -8,7 +8,9 @@ import React, {Component} from 'react';
 import {View, Button, Dimensions} from 'react-native';
 
 export default class IndexExample extends Component {
-
+    static navigationOptions = ({navigation}) => ({
+        title: navigation.state.params.title
+    });
 
     _goToPage = (params) => {
         this.props.navigation.navigate(params);

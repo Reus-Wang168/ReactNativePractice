@@ -9,7 +9,7 @@ import {
     AppConfig,
     AppRegistry,
     Easing,
-    Animated
+    Animated, StatusBar, View
 } from 'react-native';
 
 import {StackNavigator} from 'react-navigation'
@@ -129,7 +129,14 @@ class RootView extends Component {
 
     render() {
         return (<ThemeProvider theme={theme}>
-                <AppNav/>
+                <View style={{flex:1}}>
+                    <StatusBar
+                        backgroundColor="#3e77ff"
+                        barStyle="light-content"
+                    />
+                    <AppNav/>
+                </View>
+
             </ThemeProvider>
         )
     }

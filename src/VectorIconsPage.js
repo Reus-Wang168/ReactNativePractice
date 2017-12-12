@@ -17,6 +17,9 @@ let data = require('./localdata/Tulips.jpg');
 
 export default class VectorIconsPage extends Component {
 
+    static navigationOptions = ({navigation}) => ({
+        title: navigation.state.params.title
+    });
 
     constructor(props) {
         super(props);

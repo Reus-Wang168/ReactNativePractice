@@ -14,7 +14,9 @@ const datas = ["http://d.hiphotos.baidu.com/image/pic/item/3b292df5e0fe9925279aa
 const data = ['1', '2', '3'];
 
 export default class ImgCachePage extends Component {
-
+    static navigationOptions = ({navigation}) => ({
+        title: navigation.state.params.title
+    });
     _keyExtractor = (item) => item;
 
     render() {
