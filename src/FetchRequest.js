@@ -73,7 +73,7 @@ function getStateCode(text) {
 }
 
 
-let common_url = 'http://cybershop4-dev-restapi.dev.co-mall';  //服务器地址
+let common_url = "https://api.github.com/users/mike";  //服务器地址
 
 /**
  * 让fetch也可以timeout
@@ -118,8 +118,8 @@ const FetchRequest = {
     fetchRequest: function (url, method, params = '') {
 
         let header = {
-            appKey: 'ef1fc57c13007e33',
-            // "Content-Type":"application/json",
+            // appKey: 'ef1fc57c13007e33',
+            "Content-Type":"application/json",
             // os: Platform.OS === 'ios',
             // appVersion: Platform.OS === 'ios' ? DeviceInfo.getVersion() : '',
             // unique: Platform.OS === 'ios' ? DeviceInfo.getUniqueID() : '',
@@ -128,9 +128,9 @@ const FetchRequest = {
             // userSession:undefined,
             // channel: "1",
             // language:2,
-            osVersion: "10.0",
-            appVersion: "1.0.0",
-            unique: "1111111111"
+            // osVersion: "10.0",
+            // appVersion: "1.0.0",
+            // unique: "1111111111"
         };
         console.log('request url:', url, params);  //打印请求参数
         if (method !== 'Post') {
@@ -146,18 +146,18 @@ const FetchRequest = {
                     url += paramsArray.join('&')
                 }
             }
-            console.log('url====' + url);
+            console.log('url====' + common_url + url);
             //如果网络请求中带有参数
             return new Promise(function (resolve, reject) {
                 timeout_fetch(fetch(common_url + url, {
                     method: method,
                     headers: header,
                 })).then((response) => {
-                    console.log("response==" + response);
+                    console.log("response==" + JSON.stringify(response));
                     response.json();
                 })
                     .then((responseData) => {
-                        console.log('res:', url, responseData);  //网络请求成功返回的数据
+                        console.log('res:', common_url + url, responseData);  //网络请求成功返回的数据
                         resolve(responseData);
                     })
                     .catch((err) => {

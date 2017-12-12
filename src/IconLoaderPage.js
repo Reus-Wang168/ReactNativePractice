@@ -47,8 +47,15 @@ export default class IconLoaderPage extends Component<{}> {
 
     constructor(props) {
         super(props)
+        console.log("props==" + JSON.stringify(props));
+
 
     }
+
+
+    static navigationOptions = ({navigation}) => ({
+        title: navigation.state.params.title
+    });
 
     onPress = () => {
         this.props.navigation.navigate('Home')
@@ -105,7 +112,7 @@ export default class IconLoaderPage extends Component<{}> {
 
                     <StyledHorizontalView>
                         <StyledText>ios-share(default)</StyledText>
-                        <IconLoader name={'md-share'} />
+                        <IconLoader name={'md-share'}/>
                     </StyledHorizontalView>
 
                     <StyledHorizontalView>

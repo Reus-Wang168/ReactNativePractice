@@ -31,6 +31,10 @@ import FetchRequest from "./FetchRequest";
 
 export default class app extends Component {
 
+    static navigationOptions = {
+        title: 'React Native'
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -173,41 +177,33 @@ export default class app extends Component {
     };
 
     _goToPage = (params) => {
-        this.props.navigation.navigate(params);
+        this.props.navigation.navigate(params, {title: params});
     };
 
     _apiTest = () => {
         // Api.Get("http://cybershop4-dev-restapi.dev.co-mall/products/search?pn=1&ps=12&s=1", null, this._success, this._error)
 
-        let url = '/api/products/search?';
-
-        let param = {
-            // "merchantId": "1",
-            "pn": "1",
-            "ps": "12",
-            "s": "1"
-            //"subsiteId": "1",
-            // "osVersion":"10.0",
-            // "appVersion":"1.0.0",
-            // "unique":"1111111111"
-        }
-
-
-        let info = FetchRequest.fetchRequest(url, 'get', param);
-
-        info.then(
-            (resData) => {
-                console.log('data=' + resData);
-
-            }).catch()
+        fetch("https://api.github.com/users/mike")
+            .then((response) => {
+                    response.json();
+                    console.log("the response is "+JSON.stringify(response))
+            })
+            .then((responseJson) => (
+                console.log("json ==" + responseJson)
+            ))
+            .catch((error) => (
+                console.log("error ==" + error)
+            ));
 
     };
 
     _success = (resData) => {
         console.log("success: " + resData);
+        ToastAndroid.show(resData, ToastAndroid.SHORT);
     };
 
     _error = (error) => {
+        ToastAndroid.show(error, ToastAndroid.SHORT);
         console.log("error: " + error)
     };
 
