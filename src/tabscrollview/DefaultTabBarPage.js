@@ -8,11 +8,12 @@ import ScrollableTabView, {DefaultTabBar,} from 'react-native-scrollable-tab-vie
 
 let tabs = ['1', '2', '3', '4','5'];
 export default class DefaultTabBarPage extends Component {
-
+    static navigationOptions = ({navigation}) => ({
+        title: navigation.state.params.title
+    });
 
     constructor(props) {
         super(props);
-
     }
 
 

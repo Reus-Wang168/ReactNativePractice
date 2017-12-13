@@ -74,20 +74,28 @@ export default () => {
             <View style={{flex: 1}}>
                 <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[0]}}/>
                 <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[10]}}/>
+                <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[11]}}/>
+                <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[20]}}/>
+                <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[30]}}/>
+                <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[40]}}/>
+                <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[50]}}/>
             </View>
 
         </ScrollView>
         <ScrollView tabLabel='Web'>
             <Icon name='logo-android' color='#A4C639' size={300} style={styles.icon}/>
-            <Icon name='logo-android' color='black' size={300} style={styles.icon}/>
-            <Icon name='logo-android' color='brown' size={300} style={styles.icon}/>
+            <Icon name='logo-apple' color='black' size={300} style={styles.icon}/>
+            <Icon name='logo-angular' color='brown' size={300} style={styles.icon}/>
+            <Icon name='logo-python' color='#A4C639' size={300} style={styles.icon}/>
+            <Icon name='logo-google' color='black' size={300} style={styles.icon}/>
+            <Icon name='logo-html5' color='brown' size={300} style={styles.icon}/>
         </ScrollView>
     </ScrollableTabView>;
 }
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 30,
+        marginTop: 0,
     },
     icon: {
         width: 300,

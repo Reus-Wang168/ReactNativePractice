@@ -1,7 +1,10 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import {
-    Text, View, ViewPagerAndroid, Dimensions, Image, StyleSheet, TouchableOpacity
+    Text, View, ViewPagerAndroid, Dimensions, Image, StyleSheet, TouchableOpacity, ScrollView, Switch, TextInput
 } from 'react-native';
+
+
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const screenW = Dimensions.get('window').width;
 const screenH = Dimensions.get('window').height;
@@ -11,28 +14,57 @@ import ScrollableTabView, {DefaultTabBar,} from 'react-native-scrollable-tab-vie
 import Swiper from 'react-native-swiper';
 
 
-
-
-
 export default class SimpleExample extends Component {
-    _goToPage = (params) => {
-        console.log(params);
-        console.log("--------------" + this.props.navigation);
-        this.props.navigation.navigate(params);
-    };
 
+
+    static navigationOptions = ({navigation}) => ({
+        title: navigation.state.routeName
+    });
+
+
+    constructor(props) {
+        super(props);
+
+        this.state = ({
+            showSwiper: false,
+            scrollable: false,
+        })
+    }
+
+
+    componentDidMount() {
+        this.timer = setTimeout(() => {
+            this.setState({
+                showSwiper: true,
+            })
+        }, 1)
+    }
+
+
+    componentWillUnmount() {
+        this.timer && clearTimeout(this.timer);
+    }
+
+    _onValueChanged = (value) => {
+        console.log("the value = " + value)
+        this.setState({
+            scrollable: value,
+        })
+    };
 
     render() {
 
         return <ScrollableTabView
-            style={{marginTop: 20,}}
-            initialPage={1}
-            renderTabBar={() => <DefaultTabBar underlineStyle={{backgroundColor:'transparent'}}/>}
+            locked={this.state.scrollable}
+            style={{marginTop: 0,}}
+            initialPage={0}
+            renderTabBar={() => <DefaultTabBar
+                underlineStyle={{backgroundColor: '#31cd96', height: 2}}/>}
         >
 
             <View tabLabel='销量' style={{flex: 1, backgroundColor: 'white'}}>
                 <View style={{width: screenW, height: screenH / 3}}>
-                    <Swiper
+                    {this.state.showSwiper ? (<Swiper
                         loop={false}
                         index={0}
                         autoplay={false}
@@ -69,20 +101,39 @@ export default class SimpleExample extends Component {
                             height: screenH / 3,
                         }} source={{uri: pics[29]}}/>
 
-                    </Swiper>
+                    </Swiper>) : (<View style={{width: screenW, height: screenH / 3, backgroundColor: 'white'}}/>)}
 
-                    <TouchableOpacity onPress={() => {
-                        this._goToPage('Home')
-                    }}>
-                        <Text style={{margin: 10, fontSize: 18, color: 'black'}}>go-bakc-Index</Text>
-                    </TouchableOpacity>
 
+                    <Switch style={{margin: 10}} value={this.state.scrollable}
+                            onValueChange={(value) => this._onValueChanged}/>
+
+                    <TextInput value={'11111'}/>
 
                 </View>
             </View>
-            <Text tabLabel='价格'>favorite</Text>
             <Text tabLabel='上架时间'>project</Text>
-            <Text tabLabel='筛选'>project</Text>
+
+            <ScrollView tabLabel='价格'>
+                <View style={{flex: 1}}>
+                    <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[11]}}/>
+                    <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[20]}}/>
+                    <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[30]}}/>
+                    <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[40]}}/>
+                    <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[50]}}/>
+                    <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[0]}}/>
+                    <Image style={{width: screenW, height: screenH / 3,}} source={{uri: pics[10]}}/>
+
+                </View>
+            </ScrollView>
+            <ScrollView tabLabel='筛选' showsVerticalScrollIndicator={false}
+                        contentContainerStyle={{alignItems: 'center'}}>
+                <Icon name='logo-android' color='#A4C639' size={300} style={styles.icon}/>
+                <Icon name='logo-apple' color='black' size={300} style={styles.icon}/>
+                <Icon name='logo-angular' color='brown' size={300} style={styles.icon}/>
+                <Icon name='logo-python' color='#A4C639' size={300} style={styles.icon}/>
+                <Icon name='logo-google' color='#31cd96' size={300} style={styles.icon}/>
+                <Icon name='logo-html5' color='brown' size={300} style={styles.icon}/>
+            </ScrollView>
         </ScrollableTabView>;
     }
 }

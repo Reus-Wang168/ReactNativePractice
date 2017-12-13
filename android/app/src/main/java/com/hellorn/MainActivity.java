@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.uimanager.ReactShadowNodeImpl;
 
+import java.util.ArrayList;
+
 public class MainActivity extends ReactActivity {
 
     ViewManager mViewManager;
@@ -18,6 +20,7 @@ public class MainActivity extends ReactActivity {
     Handler mHandler;
     AsyncTask mAsyncTask;
 
+    ArrayList mArrayList;
     ReactShadowNodeImpl mReactShadowNode;
 
     Binder mBinder;
