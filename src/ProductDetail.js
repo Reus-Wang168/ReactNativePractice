@@ -39,6 +39,7 @@ let items = ['商品', '详情', '评论'];
 
 class Tab extends Component {
 
+
     constructor(props) {
         super(props);
 
@@ -104,6 +105,11 @@ class Tab extends Component {
 
 
 export default class ProductDetail extends Component {
+
+    static navigationOptions = ({navigation}) => ({
+        title: navigation.state.routeName,
+        header: null,
+    });
 
     constructor(props) {
         super(props);
@@ -198,7 +204,7 @@ export default class ProductDetail extends Component {
 
     };
     _onContentScroll = (e) => {
-        let percent = Math.abs(e.nativeEvent.contentOffset.y) / 200;
+        let percent = Math.abs(e.y) / 200;
 
 
         console.log(percent);
@@ -259,26 +265,14 @@ export default class ProductDetail extends Component {
             <View style={{flex: 1, backgroundColor: 'white'}}>
 
 
-                <HorizontalScrollView initialPage={0}
-                    // // style={{width: width, height: height}}
-                                      scrollEnabled={true}
-                                      onPageSelected={(obj) => {
-                                          //console.log('index:' + obj.i);
-
-                                          let index = obj;
-                                          this.setState({
-                                              topIndex: index,
-                                              one: index ? false : true,
-                                          })
-                                      }}
-                >
-
-
-                    <View style={{flex: 1, width: Screen.width}}>
-
-                        <CustomScrollView upChildren={
-                            <View contentContainerStyle={{width: Screen.width}}
-                                                            onScroll={this._onContentScroll}>
+                <CustomScrollView
+                    upOnScroll={this._onContentScroll}
+                    style={{
+                        width: Screen.width,
+                        height: Screen.height,
+                    }}
+                    upChildren={
+                        <View contentContainerStyle={{width: Screen.width, height: Screen.height}}>
 
                             {this.state.showSwiper ? (<Swiper
                                 loop={false}
@@ -351,13 +345,16 @@ export default class ProductDetail extends Component {
                             <View style={{backgroundColor: 'black', height: 0.21, marginLeft: 10}}/>
                             <View style={{flexDirection: 'row', margin: 10, alignItems: 'center'}}>
                                 <Text style={{fontSize: 18, marginRight: 10}}>数量</Text>
-                                <View style={{borderWidth: 0.2, alignItems: 'center', justifyContent: 'center'}}>
+                                <View
+                                    style={{borderWidth: 0.2, alignItems: 'center', justifyContent: 'center'}}>
                                     <Text style={{fontSize: 19, marginLeft: 10, marginRight: 10}}>-</Text>
                                 </View>
-                                <View style={{borderWidth: 0.2, alignItems: 'center', justifyContent: 'center'}}>
+                                <View
+                                    style={{borderWidth: 0.2, alignItems: 'center', justifyContent: 'center'}}>
                                     <Text style={{fontSize: 19, marginLeft: 12, marginRight: 12}}>0</Text>
                                 </View>
-                                <View style={{borderWidth: 0.2, alignItems: 'center', justifyContent: 'center'}}>
+                                <View
+                                    style={{borderWidth: 0.2, alignItems: 'center', justifyContent: 'center'}}>
                                     <Text style={{fontSize: 19, marginLeft: 10, marginRight: 10}}>+</Text>
                                 </View>
                             </View>
@@ -385,27 +382,28 @@ export default class ProductDetail extends Component {
                                 <Text>到底了</Text>
                             </View>
 
-                        </View>} downChildren={<Text/>}>
+                        </View>} downChildren={
+                    <View style={{flex: 1}}>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                        <Text style={{margin: 20, color: 'black', fontSize: 22}}>11111111111</Text>
+                    </View>}>
 
-                        </CustomScrollView>
-                    </View>
-
-                    <View style={{
-                        flex: 1,
-                        width: Screen.width,
-                        height: Screen.height,
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                        <Text>{items[1]}</Text>
-                    </View>
-                    <View style={{
-                        flex: 1, width: Screen.width, height: Screen.height, alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                        <Text>{items[2]}</Text>
-                    </View>
-                </HorizontalScrollView>
+                </CustomScrollView>
 
 
                 <Animated.View style={{

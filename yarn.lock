@@ -3514,9 +3514,9 @@ react-native-clcasher@1.0.0:
   dependencies:
     mock-async-storage "^1.0.3"
 
-react-native-cm-custom-scrollview@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-native-cm-custom-scrollview/-/react-native-cm-custom-scrollview-1.0.1.tgz#99b7e062281eb358d910f7714ab61684ebd27ff4"
+react-native-cm-custom-scrollview@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-cm-custom-scrollview/-/react-native-cm-custom-scrollview-1.0.3.tgz#247cd4c942843e29a671eb2af82c1d1e6e4ef8bd"
 
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"

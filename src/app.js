@@ -49,19 +49,6 @@ export default class app extends Component {
 
     }
 
-    _showDeviceInfo = () => {
-        let names = "windowPhysicalPixels:\n";
-        for (let name in DeviceInfo.Dimensions.windowPhysicalPixels) {
-            names += name + ": " + DeviceInfo.Dimensions.windowPhysicalPixels[name] + "\n";
-        }
-        names += "\nscreenPhysicalPixels:\n";
-        for (let name in DeviceInfo.Dimensions.screenPhysicalPixels) {
-            names += name + ": " + DeviceInfo.Dimensions.screenPhysicalPixels[name] + "\n";
-        }
-
-
-        alert(names);
-    };
 
     onPullRelease(resolve) {
         //do something
@@ -71,8 +58,8 @@ export default class app extends Component {
     }
 
     topIndicatorRender(pulling, pullok, pullrelease) {
-        const hide = {position: 'absolute', left: 10000};
-        const show = {position: 'relative', left: 0};
+        const hide = {position: 'absolute', left: 10000, margin: 20, color: 'black', fontSize: 18};
+        const show = {position: 'relative', left: 0, margin: 20, color: 'black', fontSize: 18};
         setTimeout(() => {
             if (pulling) {
                 this.txtPulling && this.txtPulling.setNativeProps({style: show});
@@ -89,8 +76,8 @@ export default class app extends Component {
             }
         }, 1);
         return (
-            <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 60}}>
-                <ActivityIndicator size="small" color="gray"/>
+            <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 70}}>
+                <ActivityIndicator size="large" color={"#3e77ff"} style={{marginRight: 20}}/>
                 <Text ref={(c) => {
                     this.txtPulling = c;
                 }}>下拉刷新pulling...</Text>
@@ -104,6 +91,19 @@ export default class app extends Component {
         );
     }
 
+    _showDeviceInfo = () => {
+        let names = "windowPhysicalPixels:\n";
+        for (let name in DeviceInfo.Dimensions.windowPhysicalPixels) {
+            names += name + ": " + DeviceInfo.Dimensions.windowPhysicalPixels[name] + "\n";
+        }
+        names += "\nscreenPhysicalPixels:\n";
+        for (let name in DeviceInfo.Dimensions.screenPhysicalPixels) {
+            names += name + ": " + DeviceInfo.Dimensions.screenPhysicalPixels[name] + "\n";
+        }
+
+
+        alert(names);
+    };
     _selectPhoto = () => {
         ImagePicker.openPicker({
             width: 300,
@@ -216,8 +216,10 @@ export default class app extends Component {
             <View style={[styles.container]} ref='myview'>
                 <PullView
                     showsVerticalScrollIndicator={false}
-                    style={{width: Dimensions.get('window').width}} onPullRelease={this.onPullRelease}
-                    topIndicatorRender={this.topIndicatorRender} topIndicatorHeight={60}>
+                    style={{width: Dimensions.get('window').width}}
+                    onPullRelease={this.onPullRelease}
+                    topIndicatorRender={this.topIndicatorRender}
+                    topIndicatorHeight={70}>
                     <View style={{backgroundColor: 'white'}}>
 
 
@@ -313,14 +315,6 @@ export default class app extends Component {
                                     title='SwiperExample'
                                     onPress={() => {
                                         this._goToPage('SwiperExample')
-                                    }}
-                                />
-                            </View>
-                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
-                                <Button
-                                    title='MyScrollViewPage'
-                                    onPress={() => {
-                                        this._goToPage('MyScrollViewPage')
                                     }}
                                 />
                             </View>

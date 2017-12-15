@@ -2,17 +2,16 @@
  * Created by Rookie on 2017/12/14.
  */
 const React = require('react');
-const { ViewPropTypes } = ReactNative = require('react-native');
+const {ViewPropTypes} = ReactNative = require('react-native');
 const PropTypes = require('prop-types');
 const createReactClass = require('create-react-class');
 const {
     StyleSheet,
     Text,
     View,
-    Button,
     Animated,
 } = ReactNative;
-// const Button = require('./Button');
+const Button = require('./Button');
 
 const CustomTabBar = createReactClass({
     propTypes: {
@@ -40,20 +39,21 @@ const CustomTabBar = createReactClass({
     },
 
     renderTab(name, page, isTabActive, onPressHandler) {
-        const { activeTextColor, inactiveTextColor, textStyle, } = this.props;
+        const {activeTextColor, inactiveTextColor, textStyle,} = this.props;
         const textColor = isTabActive ? activeTextColor : inactiveTextColor;
         const fontWeight = isTabActive ? 'bold' : 'normal';
 
+
         return <Button
-            style={{flex: 1, }}
+            style={{flex: 1,}}
             key={name}
             accessible={true}
             accessibilityLabel={name}
             accessibilityTraits='button'
             onPress={() => onPressHandler(page)}
         >
-            <View style={[styles.tab, this.props.tabStyle, ]}>
-                <Text style={[{color: textColor, fontWeight, }, textStyle, ]}>
+            <View style={[styles.tab, this.props.tabStyle,]}>
+                <Text style={[{color: textColor, fontWeight,}, textStyle,]}>
                     {name}
                 </Text>
             </View>
@@ -65,18 +65,26 @@ const CustomTabBar = createReactClass({
         const numberOfTabs = this.props.tabs.length;
         const tabUnderlineStyle = {
             position: 'absolute',
-            width: containerWidth / numberOfTabs,
+            width: containerWidth / numberOfTabs / 2,
             height: 4,
+            left: containerWidth / numberOfTabs / 4,
             backgroundColor: 'navy',
             bottom: 0,
         };
 
         const translateX = this.props.scrollValue.interpolate({
             inputRange: [0, 1],
-            outputRange: [0,  containerWidth / numberOfTabs],
+            outputRange: [0, containerWidth / numberOfTabs],
         });
+
+        const scaleX = this.props.scrollValue.interpolate({
+            inputRange: [0, 0.5, 1],
+            outputRange: [1, 2, 1]
+        });
+
+
         return (
-            <View style={[styles.tabs, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}>
+            <View style={[styles.tabs, {backgroundColor: this.props.backgroundColor,}, this.props.style,]}>
                 {this.props.tabs.map((name, page) => {
                     const isTabActive = this.props.activeTab === page;
                     const renderTab = this.props.renderTab || this.renderTab;
@@ -87,8 +95,8 @@ const CustomTabBar = createReactClass({
                         tabUnderlineStyle,
                         {
                             transform: [
-                                { translateX },
-                            ]
+                                {translateX},{scaleX}
+                            ],
                         },
                         this.props.underlineStyle,
                     ]}

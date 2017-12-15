@@ -1,7 +1,7 @@
 /**
  * Created by Rookie on 2017/10/27.
  */
-import React, {Component,PropTypes} from 'react';
+import React, {Component} from 'react';
 import {
     StyleSheet,
     View,
@@ -10,13 +10,15 @@ import {
 
 } from 'react-native';
 
+import {PropTypes} from 'prop-types';
+
 
 const {width, height} = Dimensions.get('window');
 
 export default class CountTag extends Component {
     //属性声名
     static propTypes = {
-        text: React.PropTypes
+        text: PropTypes.number
     };
     //默认属性
     static defaultProps = {

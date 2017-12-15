@@ -30,6 +30,7 @@ public class MainActivity extends ReactActivity {
 
     Binder mBinder;
 
+
     private static final String TAG = "MainActivity";
 
     @Override
@@ -56,7 +57,6 @@ public class MainActivity extends ReactActivity {
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -74,12 +74,14 @@ public class MainActivity extends ReactActivity {
 
 
         Log.e(TAG, "onCreate: " + mHashMap.size());
+
+        final float density = getResources().getDisplayMetrics().density;
+
+        Log.e(TAG, "onCreate: density=" + density);
     }
 
     @Override
     public void startActivity(Intent intent) {
-
-
         super.startActivity(intent);
     }
 

@@ -7,8 +7,12 @@ import com.RNFetchBlob.RNFetchBlobPackage;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
+import com.facebook.react.modules.network.OkHttpClientProvider;
+import com.facebook.react.modules.network.ReactCookieJarContainer;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.facebook.stetho.Stetho;
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.hellorn.custom.CustomPackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -17,6 +21,9 @@ import com.rookie.customscrollview.CustomScrollViewPackage;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 
 
 public class MainApplication extends Application implements ReactApplication {
@@ -56,7 +63,15 @@ public class MainApplication extends Application implements ReactApplication {
         super.onCreate();
         SoLoader.init(this, /* native exopackage */ false);
 
-
+        Stetho.initializeWithDefaults(this);
+        OkHttpClient mOkHttpClient=new OkHttpClient.Builder()
+                .connectTimeout(0, TimeUnit.MICROSECONDS)
+                .readTimeout(0,TimeUnit.MICROSECONDS)
+                .writeTimeout(0,TimeUnit.MICROSECONDS)
+                .cookieJar(new ReactCookieJarContainer())
+                .addInterceptor(new StethoInterceptor())
+                .build();
+        OkHttpClientProvider.replaceOkHttpClient(mOkHttpClient);
 
     }
 }

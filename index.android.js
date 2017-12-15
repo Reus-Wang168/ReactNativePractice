@@ -20,7 +20,6 @@ import AppList from './src/appList';
 import Camera from './src/BadInstagramCloneApp';
 import Animations from './src/AnimationsPage';
 import MyViewPager from './src/MyViewPager';
-import MyScrollViewPage from './src/MyScrollViewPage';
 import ProductDetail from './src/ProductDetail';
 import VectorIcons from './src/VectorIconsPage';
 
@@ -49,7 +48,6 @@ const AppNav = StackNavigator({
     Camera: {screen: Camera},
     Animation: {screen: Animations},
     MyViewPager: {screen: MyViewPager},
-    MyScrollViewPage: {screen: MyScrollViewPage},
     ProductDetail: {screen: ProductDetail},
     SimpleExample: {screen: SimpleExample},
     DynamicExample: {screen: DynamicExample},
@@ -69,6 +67,7 @@ const AppNav = StackNavigator({
 
 }, {
     initialRouteName: 'Home',
+    headerMode: 'screen',
     navigationOptions: {
         headerStyle: {
             backgroundColor: '#3e77ff'
@@ -91,6 +90,8 @@ const AppNav = StackNavigator({
         screenInterpolator: sceneProps => {
             const {layout, position, scene} = sceneProps;
             const {index} = scene;
+
+            console.log("the scene index=" + index);
 
             const width = layout.initWidth;
             const translateX = position.interpolate({
@@ -124,12 +125,11 @@ class RootView extends Component {
 
     constructor(props) {
         super(props);
-        global.Images = Images;
     }
 
     render() {
         return (<ThemeProvider theme={theme}>
-                <View style={{flex:1}}>
+                <View style={{flex: 1}}>
                     <StatusBar
                         backgroundColor="#3e77ff"
                         barStyle="light-content"
