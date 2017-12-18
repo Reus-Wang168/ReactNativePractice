@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {View, Animated, Text, TouchableOpacity, TouchableHighlight, Modal, Easing, ToastAndroid} from 'react-native';
 
-import Screen from './common/Screen';
+import Screen from '../common/Screen';
 
 
 class AnimView extends Component {

@@ -18,20 +18,20 @@ import {
 import {PullView} from 'react-native-pull'
 
 import Swiper from 'react-native-swiper';
-import Screen from './common/Screen';
-import common from './common/common';
+import Screen from '../common/Screen';
+import common from '../common/common';
 
 import CustomScrollView from 'react-native-cm-custom-scrollview';
 
-let data = require('./localdata/product.json');
-let dataMatch = require('./localdata/prodMatch.json');
+let data = require('../resource/product.json');
+let dataMatch = require('../resource/prodMatch.json');
 
 
 import LinearGradient from "react-native-linear-gradient";
 
-import CountTag from './component/CountTag';
+import CountTag from '../component/CountTag';
 
-import HorizontalScrollView from './HorizontalScrollView';
+import HorizontalScrollView from '../component/HorizontalScrollView';
 
 let bannerImgs = [];
 let items = ['商品', '详情', '评论'];
@@ -430,13 +430,13 @@ export default class ProductDetail extends Component {
 
                     <TouchableOpacity>
                         <Image style={{width: 30, height: 30, margin: 10, opacity: 1 - this.state.opacity}}
-                               source={require('./../res/images/icon-back.png')}/>
+                               source={require('../../res/images/icon-back.png')}/>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.setModalVisible(true)}
                                       style={{position: 'absolute', right: 0}}>
                         <Image
                             style={{width: 30, height: 30, margin: 10, opacity: this.state.selectedIndex > 0 ? 0 : 1}}
-                            source={require('./../res/images/icon-more.png')}/>
+                            source={require('../../res/images/icon-more.png')}/>
                     </TouchableOpacity>
 
                 </View>
@@ -542,7 +542,7 @@ export default class ProductDetail extends Component {
                             <Image style={{
                                 marginBottom: 5,
                                 width: 30, height: 30
-                            }} source={require('../res/images/icon-service.png')}/>
+                            }} source={require('../../res/images/icon-service.png')}/>
                             <Text>客服</Text>
                         </View>
                         <View style={{
@@ -553,7 +553,7 @@ export default class ProductDetail extends Component {
                             <Image style={{
                                 marginBottom: 5,
                                 width: 30, height: 30
-                            }} source={require('../res/images/icon-favorite.png')}/>
+                            }} source={require('../../res/images/icon-favorite.png')}/>
                             <Text>收藏</Text>
                         </View>
                         <View style={{
@@ -564,7 +564,7 @@ export default class ProductDetail extends Component {
                             <Image style={{
                                 marginBottom: 5,
                                 width: 30, height: 30
-                            }} source={require('../res/images/icon-shop-cart.png')}/>
+                            }} source={require('../../res/images/icon-shop-cart.png')}/>
 
                             <Text>购物车</Text>
                             <CountTag style={{position: 'absolute', right: 1, top: 1}} text={35}/>

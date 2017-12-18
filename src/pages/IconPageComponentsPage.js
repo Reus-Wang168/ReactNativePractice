@@ -4,7 +4,7 @@
 
 
 import styled from 'styled-components/native';
-import Screen from './common/Screen';
+import Screen from '../common/Screen';
 
 export const StyledTextInput = styled.TextInput`
     height: 40px;

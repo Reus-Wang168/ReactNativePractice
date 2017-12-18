@@ -9,9 +9,9 @@ import {
     ActivityIndicator,
     ToastAndroid, TextInput,
 } from 'react-native';
-import IconLoader from './component/icon/icon'
+import IconLoader from '../component/icon/icon'
 
-import invariant from '../node_modules/fbjs/lib/invariant'
+import invariant from '../../node_modules/fbjs/lib/invariant'
 
 
 const {width, height} = Dimensions.get('window');

@@ -9,12 +9,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const screenW = Dimensions.get('window').width;
 const screenH = Dimensions.get('window').height;
-let pics = require('./../pics.json');
+let pics = require('../../resource/pics.json');
 
 
 import ScrollableTabView, {DefaultTabBar,} from 'react-native-scrollable-tab-view';
 import Swiper from 'react-native-swiper';
-import CustomTabBar from './custom-tab-bar/CustomTabBar';
 
 export default class SimpleExample extends Component {
 
@@ -192,7 +191,7 @@ export default class SimpleExample extends Component {
                                 <Image style={{
                                     width: screenW,
                                     height: screenH / 3,
-                                }} source={require('./../localdata/Hydrangeas.jpg')}/>
+                                }} source={require('../../resource/Hydrangeas.jpg')}/>
                                 <Image style={{
                                     width: screenW,
                                     height: screenH / 3,

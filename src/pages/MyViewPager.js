@@ -10,7 +10,7 @@ const screenW = Dimensions.get('window').width;
 const screenH = Dimensions.get('window').height;
 
 
-let pics = require('./pics.json');
+let pics = require('../resource/pics.json');
 
 let items = ['商品', '详情', '评论'];
 

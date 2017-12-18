@@ -27,7 +27,7 @@ const px2pt = (px) => PixelRatio.roundToNearestPixel(px);
 import {PullView} from 'react-native-pull';
 
 import ImagePicker from 'react-native-image-crop-picker';
-import FetchRequest from "./FetchRequest";
+import Api from './../http/Api';
 
 export default class app extends Component {
 
@@ -182,27 +182,12 @@ export default class app extends Component {
     };
 
     _apiTest = () => {
-        // Api.Get("http://cybershop4-dev-restapi.dev.co-mall/products/search?pn=1&ps=12&s=1", null, this._success, this._error)
-
-
-        fetch("http://gank.io/api/data/Android/10/1")
-            .then((response) => response.json())
-            .then((responseJson) => {
-                    console.log("json ==" + responseJson);
-                    ToastAndroid.show("success: " + responseJson.results[0].desc, ToastAndroid.SHORT);
-                }
-            )
-            .catch((error) => {
-                    console.log("error ==" + error)
-                    ToastAndroid.show(error, ToastAndroid.SHORT);
-                }
-            );
-
+        Api.Get("http://gank.io/api/data/Android/10/1", null, this._success, this._error)
     };
 
     _success = (resData) => {
-        console.log("success: " + resData);
-        ToastAndroid.show(resData, ToastAndroid.SHORT);
+        console.log("success: " + JSON.stringify(resData));
+        ToastAndroid.show("success = " + !resData.error, ToastAndroid.SHORT);
     };
 
     _error = (error) => {
@@ -241,9 +226,9 @@ export default class app extends Component {
                             </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
-                                    title='StyledcomponentsPage'
+                                    title='StyledComponentsPage'
                                     onPress={() => {
-                                        this._goToPage('StyledcomponentsPage')
+                                        this._goToPage('StyledComponentsPage')
                                     }}
                                 />
                             </View>
@@ -401,8 +386,14 @@ export default class app extends Component {
                                 </Text>
                                 <Text style={{fontSize: 18, color: 'black', margin: 10}}>
                                     px2pt-width ={px2pt(300)}
+                                </Text>
+                                <Text style={{fontSize: 18, color: 'black', margin: 10}}>
                                     px2pt-height={px2pt(111)}
+                                </Text>
+                                <Text style={{fontSize: 18, color: 'black', margin: 10}}>
                                     pt2px-width={pt2px(width)}
+                                </Text>
+                                <Text style={{fontSize: 18, color: 'black', margin: 10}}>
                                     pt2px-height={pt2px(height)}
                                 </Text>
 

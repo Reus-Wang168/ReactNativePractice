@@ -43,6 +43,7 @@ public class MainActivity extends ReactActivity {
         try {
             Class mClass = Class.forName("java.util.Collections");
 
+
             Method mMethod = mClass.getDeclaredMethod("secondaryHash", Object.class);
 
             int result = (int) mMethod.invoke(null, "name");

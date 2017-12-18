@@ -12,7 +12,7 @@ let height = Dimensions.get('window').height;
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-let data = require('./localdata/Tulips.jpg');
+let data = require('../resource/Tulips.jpg');
 
 
 export default class VectorIconsPage extends Component {

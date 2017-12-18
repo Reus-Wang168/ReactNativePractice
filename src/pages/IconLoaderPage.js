@@ -12,9 +12,9 @@ import {
     Button,
 } from 'react-native';
 
-import {StyledScrollView, StyledTextInput, BeautyTextInput} from "./IconPageComponents";
+import {StyledScrollView, StyledTextInput, BeautyTextInput} from "./IconPageComponentsPage";
 
-import IconLoader from './component/icon/icon';
+import IconLoader from '../component/icon/icon';
 import styled, {ThemeProvider} from 'styled-components/native';
 
 

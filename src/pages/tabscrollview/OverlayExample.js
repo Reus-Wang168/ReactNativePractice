@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const screenW = Dimensions.get('window').width;
 const screenH = Dimensions.get('window').height;
-let pics = require('./../pics.json');
+let pics = require('../../resource/pics.json');
 import Swiper from 'react-native-swiper';
 
 // Using tabBarPosition='overlayTop' or 'overlayBottom' lets the content show through a
@@ -57,7 +57,7 @@ export default () => {
                     <Image style={{
                         width: screenW,
                         height: screenH / 3,
-                    }} source={require('./../localdata/Hydrangeas.jpg')}/>
+                    }} source={require('../../resource/Hydrangeas.jpg')}/>
                     <Image style={{
                         width: screenW,
                         height: screenH / 3,
