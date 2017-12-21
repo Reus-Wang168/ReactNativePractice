@@ -43,9 +43,7 @@ class Toast extends Component {
                 animationType={"fade"}
                 transparent={true}
                 visible={this.props.show}
-                onRequestClose={() => {
-
-                }}
+                onRequestClose={() => {}}
             >
 
 

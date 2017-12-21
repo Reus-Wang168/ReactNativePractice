@@ -18,7 +18,7 @@ import {
 import {StackNavigator} from 'react-navigation'
 
 
-import ExampleIndex from './pages/ExampleIndex';
+import ExampleIndex from './pages/IndexPage';
 import PullList from './pages/PullListPage';
 import Camera from './component/BadInstagramCloneApp';
 import Animations from './pages/AnimationsPage';
@@ -40,8 +40,8 @@ import ImgCachePage from './pages/ImgCachePage';
 import IconLoader from './pages/IconLoaderPage';
 import ModalPage from './pages/ModalPage';
 import StyledComponentsPage from './pages/StyledcomponentsPage';
-
-
+import LifeCyclePage from './pages/LifeCyclePage';
+import ToastPage from './pages/ToastExamplePage';
 import './resource/Images';
 
 import {ThemeProvider} from 'styled-components/native';
@@ -68,7 +68,8 @@ const AppNav = StackNavigator({
     IconLoaderPage: {screen: IconLoader},
     ModalPage: {screen: ModalPage},
     StyledComponentsPage: {screen: StyledComponentsPage},
-
+    LifeCyclePage: {screen: LifeCyclePage},
+    ToastPage:{screen:ToastPage},
 
 }, {
     initialRouteName: 'Home',
@@ -96,7 +97,6 @@ const AppNav = StackNavigator({
             const {layout, position, scene} = sceneProps;
             const {index} = scene;
 
-            console.log("the scene index=" + index);
 
             const width = layout.initWidth;
             const translateX = position.interpolate({

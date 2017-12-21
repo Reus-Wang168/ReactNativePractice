@@ -226,6 +226,14 @@ export default class app extends Component {
                             </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
+                                    title='LifeCyclePage'
+                                    onPress={() => {
+                                        this._goToPage('LifeCyclePage')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
                                     title='StyledComponentsPage'
                                     onPress={() => {
                                         this._goToPage('StyledComponentsPage')
@@ -237,6 +245,14 @@ export default class app extends Component {
                                     title='ModalPage'
                                     onPress={() => {
                                         this._goToPage('ModalPage')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
+                                    title='ToastPage'
+                                    onPress={() => {
+                                        this._goToPage('ToastPage')
                                     }}
                                 />
                             </View>
