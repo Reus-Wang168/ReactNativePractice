@@ -47,6 +47,9 @@ import './resource/Images';
 import {ThemeProvider} from 'styled-components/native';
 
 
+import theme from './theme/theme';
+
+
 const AppNav = StackNavigator({
     Home: {screen: ExampleIndex},
     AppList: {screen: PullList},
@@ -69,7 +72,7 @@ const AppNav = StackNavigator({
     ModalPage: {screen: ModalPage},
     StyledComponentsPage: {screen: StyledComponentsPage},
     LifeCyclePage: {screen: LifeCyclePage},
-    ToastPage:{screen:ToastPage},
+    ToastPage: {screen: ToastPage},
 
 }, {
     initialRouteName: 'Home',
@@ -114,17 +117,6 @@ const AppNav = StackNavigator({
     }),
 });
 
-
-const theme = {
-    primaryColor: 'red',
-
-    icon: {
-        color: 'red',
-        small: '12',
-        middle: '24',
-        large: '36'
-    }
-};
 
 export default class  extends Component {
     render() {
