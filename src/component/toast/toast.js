@@ -20,9 +20,9 @@ import {StyledBackgroundView, StyledWindowView} from './style';
 
 const invariant = require('fbjs/lib/invariant');
 
-
-const shortTime = 3000;
-const longTime = 5000;
+const VIEW_MARGIN = 15;
+const SHORT_TIME = 3000;
+const LONG_TIME = 5000;
 let duration;
 
 
@@ -50,7 +50,7 @@ export default class Toast extends Component {
         /**
          * 是否作为loading弹窗
          */
-        loading:PropTypes.bool,
+        loading: PropTypes.bool,
 
         /**
          * 显示时长
@@ -70,6 +70,11 @@ export default class Toast extends Component {
          */
         hideOnTouchOutSide: PropTypes.bool,
 
+        /**
+         * Android 按下返回键后是否隐藏消息，只在duration=0时有效，默认为true
+         */
+        hideOnBackPress: PropTypes.bool,
+
     };
 
     static defaultProps = {
@@ -78,6 +83,7 @@ export default class Toast extends Component {
         duration: 'short',
         hide: false,
         hideOnTouchOutSide: true,
+        hideOnBackPress: true,
     };
 
 
@@ -88,10 +94,10 @@ export default class Toast extends Component {
     formatDuration = (props) => {
         switch (props.duration) {
             case 'short':
-                duration = shortTime;
+                duration = SHORT_TIME;
                 break;
             case 'long':
-                duration = longTime;
+                duration = LONG_TIME;
                 break;
             default:
                 duration = props.duration;
@@ -130,9 +136,6 @@ export default class Toast extends Component {
 
             console.log("come to here");
 
-            this.setState({
-                visible: true,
-            });
 
             if (props.hide) {
 
@@ -141,6 +144,10 @@ export default class Toast extends Component {
                 this.setState({
                     visible: false
                 })
+            } else {
+                this.setState({
+                    visible: true,
+                });
             }
         }
 
@@ -160,12 +167,19 @@ export default class Toast extends Component {
 
 
     onRequestClose = () => {
+        console.log("i want close");
+
+        if (duration <= 0 && this.props.hideOnBackPress) {
+            this.setState({
+                visible: false
+            })
+        }
     };
 
     render() {
 
 
-        const {content, image,loading} = this.props;
+        const {content, image, loading} = this.props;
 
 
         console.log("content ==" + JSON.stringify(this.props));
@@ -193,14 +207,18 @@ export default class Toast extends Component {
                     <StyledBackgroundView>
                         <StyledWindowView>
                             {loading ?
-                                (<ActivityIndicator size={'large'} color={'white'} style={{margin: 10}}/>) :
+                                (<ActivityIndicator size={'large'} color={'white'} style={{margin: VIEW_MARGIN}}/>) :
                                 (<View style={{
                                     alignItems: 'center', borderRadius: 5,
-                                    margin: 10,
+                                    margin: VIEW_MARGIN,
                                     justifyContent: 'center'
                                 }}>
                                     {onlyTextContent ? (null) : (<Icon name={image} size={33} color={'white'}/>)}
-                                    <Text style={{color: 'white', margin: 10, fontSize: 14}}>{this.props.content}</Text>
+                                    <Text style={{
+                                        color: 'white',
+                                        margin: VIEW_MARGIN / 2,
+                                        fontSize: 14
+                                    }}>{this.props.content}</Text>
                                 </View>)
                             }
                         </StyledWindowView>

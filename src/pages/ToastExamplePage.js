@@ -13,10 +13,12 @@ const StyledView = styled.View`
   padding: 10px;
 `;
 
+import util from '../common/util';
+
 const StyledButtonWrapper = styled.View`margin: 10px`;
 const StyledButton = styled.Button``;
 const StyledInputText = styled.TextInput`margin: 10px`;
-
+let array = [11, 33, 2, 100, 12, 89, 12, 1, 100, 4, 123, 8, 9, 19];
 
 export default class ToastExample extends Component {
 
@@ -56,6 +58,7 @@ export default class ToastExample extends Component {
 
     };
 
+
     _showLoading1 = () => {
 
         this.setState({
@@ -64,6 +67,19 @@ export default class ToastExample extends Component {
             content: '我是显示时长为short的Toast',
             duration: 'short',
         });
+
+
+        console.log("length ==" + array.length);
+        for (let i = 0; i < array.length; i++) {
+            console.log(i + "  === " + array[i]);
+        }
+
+        // util.selectSort(array);
+
+        // util.bubbleSort(array);
+
+
+        util.insertSort(array);
 
     };
     _showLoading2 = () => {

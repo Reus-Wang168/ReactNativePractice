@@ -142,6 +142,9 @@ export default class ProductDetail extends Component {
             properties.push(obj);
 
 
+
+
+
         }
 
         this.setState({
@@ -232,7 +235,11 @@ export default class ProductDetail extends Component {
 
     _buyNow = () => {
         ToastAndroid.show("buyNow", ToastAndroid.SHORT);
+
+
     };
+
+
 
     _addShopCar = () => {
         ToastAndroid.show("addShopCar", ToastAndroid.SHORT);
