@@ -4,18 +4,11 @@
  * @flow
  */
 
-import React, {Component} from 'react';
+import React from 'react';
 import {AppRegistry} from 'react-native';
 
 
 import RootView from './src/root-view';
-class App extends Component {
 
 
-    render() {
-        return <RootView/>
-    }
-}
-
-
-AppRegistry.registerComponent('HelloRN', () => App);
+AppRegistry.registerComponent('HelloRN', () => RootView);

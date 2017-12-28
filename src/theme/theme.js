@@ -6,6 +6,8 @@
 import {Platform} from 'react-native';
 import screen from './screen';
 // 基础颜色值
+
+
 const color = {
     blackGray: '#1a1a1a',        // 重要文字信息,标题名称等待
     heavyGray: '#666666',        //重灰:普通文字信息,例如说明性文字,icon等
@@ -76,7 +78,7 @@ const height = {
 // 语义值
 const semantics = {
 
-    primaryColor: color.red,                      //APP主题色,用于强调文字 按钮和icon
+    primaryColor: color.green,                      //APP主题色,用于强调文字 按钮和icon
     seconderColor: color.lightOrange,             //APP辅助色
     headingTextColor: color.blackGray,            //重要文字信息,标题名称等
 
@@ -376,8 +378,14 @@ const toast = {
     iconSize: 33,
 };
 
-const t = {
+const toolbar = {
+    iconColor: color.green,
+    textColor: color.white,
+};
+
+const theme = {
     color,
+    toolbar,
     fontSize,
     icon,
     gird,
@@ -396,4 +404,8 @@ const t = {
     productListTabBar,
     productListFloatView,
     toast,
-}
+};
+
+export default theme;
+
+

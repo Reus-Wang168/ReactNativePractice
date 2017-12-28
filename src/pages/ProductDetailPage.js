@@ -12,10 +12,8 @@ import {
     ViewPagerAndroid,
     InteractionManager,
     VirtualizedList, TouchableHighlight, Modal,
-} from 'react-native';
+} from "react-native";
 
-
-import {PullView} from 'react-native-pull'
 
 import Swiper from 'react-native-swiper';
 import Screen from '../common/Screen';
@@ -31,7 +29,6 @@ import LinearGradient from "react-native-linear-gradient";
 
 import CountTag from '../component/CountTag';
 
-import HorizontalScrollView from '../component/HorizontalScrollView';
 
 let bannerImgs = [];
 let items = ['商品', '详情', '评论'];
@@ -137,13 +134,7 @@ export default class ProductDetail extends Component {
             let obj = {};
             obj.key = key;
             obj.value = value;
-
-
             properties.push(obj);
-
-
-
-
 
         }
 
@@ -154,25 +145,13 @@ export default class ProductDetail extends Component {
         bannerImgs = [];
         data.data.pics.map(function (item, i) {
             let v = (
-                <View key={i} style={{flex: 1}}>
-                    <Image style={{width: Screen.width, height: Screen.height / 2}} key={i}
-                           resizeMode={'contain'}
-                           source={{uri: item}}/>
-                </View>
+                <Image style={{width: Screen.width, height: Screen.height / 3}} key={i}
+                       resizeMode={'cover'}
+                       source={{uri: item}}/>
             );
             bannerImgs.push(v)
         });
 
-
-        // this.timer = setTimeout(
-        //     () => {
-        //         console.log('timer is here');
-        //         this.setState({
-        //             showSwiper: true,
-        //         })
-        //     },
-        //     500
-        // );
 
     }
 
@@ -235,10 +214,7 @@ export default class ProductDetail extends Component {
 
     _buyNow = () => {
         ToastAndroid.show("buyNow", ToastAndroid.SHORT);
-
-
     };
-
 
 
     _addShopCar = () => {
@@ -269,17 +245,13 @@ export default class ProductDetail extends Component {
 
         return (
 
-            <View style={{flex: 1, backgroundColor: 'white'}}>
+            <View style={{height: Screen.height, backgroundColor: 'white'}}>
 
 
                 <CustomScrollView
                     upOnScroll={this._onContentScroll}
-                    style={{
-                        width: Screen.width,
-                        height: Screen.height,
-                    }}
                     upChildren={
-                        <View contentContainerStyle={{width: Screen.width, height: Screen.height}}>
+                        <View style={{width: Screen.width, flex: 1}}>
 
                             {this.state.showSwiper ? (<Swiper
                                 loop={false}
@@ -289,7 +261,7 @@ export default class ProductDetail extends Component {
                                 horizontal={true}
                                 pagingEnabled
                                 showsPagination={true}
-                                height={Screen.height / 2}
+                                height={Screen.height / 3}
                                 contentContainerStyle={[styles.contentContainer, {flexDirection: 'row'}]}
                                 dotColor="black"
                                 activeDotColor="blue"
@@ -309,7 +281,7 @@ export default class ProductDetail extends Component {
                                     height: 10,
                                     borderRadius: 5,
                                 }}
-                            >{bannerImgs}</Swiper>) : (<View style={{height: Screen.height / 2}}/>)}
+                            >{bannerImgs}</Swiper>) : (<View style={{height: Screen.height / 3}}/>)}
 
 
                             <Text style={styles.title}>
@@ -527,6 +499,7 @@ export default class ProductDetail extends Component {
 
 
                 <View style={{
+                    zIndex: 10000,
                     backgroundColor: 'white',
                     height: 60,
                     flexDirection: 'row',
@@ -627,6 +600,6 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         width: 2 * Screen.width,
-        height: 200,
+        height: Screen.height / 3,
     },
 });

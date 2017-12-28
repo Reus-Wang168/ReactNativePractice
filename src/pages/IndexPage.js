@@ -234,6 +234,14 @@ export default class app extends Component {
                             </View>
                             <View style={{margin: 10, width: Dimensions.get('window').width}}>
                                 <Button
+                                    title='ScrollViewPage'
+                                    onPress={() => {
+                                        this._goToPage('ScrollViewPage')
+                                    }}
+                                />
+                            </View>
+                            <View style={{margin: 10, width: Dimensions.get('window').width}}>
+                                <Button
                                     title='StyledComponentsPage'
                                     onPress={() => {
                                         this._goToPage('StyledComponentsPage')

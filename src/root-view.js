@@ -42,6 +42,7 @@ import ModalPage from './pages/ModalPage';
 import StyledComponentsPage from './pages/StyledcomponentsPage';
 import LifeCyclePage from './pages/LifeCyclePage';
 import ToastPage from './pages/ToastExamplePage';
+import ScrollViewPage from './pages/ScrollViewPage';
 import './resource/Images';
 
 import {ThemeProvider} from 'styled-components/native';
@@ -73,6 +74,7 @@ const AppNav = StackNavigator({
     StyledComponentsPage: {screen: StyledComponentsPage},
     LifeCyclePage: {screen: LifeCyclePage},
     ToastPage: {screen: ToastPage},
+    ScrollViewPage: {screen: ScrollViewPage},
 
 }, {
     initialRouteName: 'Home',
