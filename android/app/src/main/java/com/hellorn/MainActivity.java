@@ -12,10 +12,7 @@ import android.widget.TextView;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.uimanager.ReactShadowNodeImpl;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MainActivity extends ReactActivity {
 
@@ -36,45 +33,6 @@ public class MainActivity extends ReactActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        HashMap<String, String> mHashMap = new HashMap<>();
-
-        try {
-            Class mClass = Class.forName("java.util.Collections");
-
-
-            Method mMethod = mClass.getDeclaredMethod("secondaryHash", Object.class);
-
-            int result = (int) mMethod.invoke(null, "name");
-
-            int index = result & 1;
-
-
-            Log.e(TAG, "onCreate: mClass=" + mClass);
-            Log.e(TAG, "onCreate: mMethod=" + mMethod);
-            Log.e(TAG, "onCreate: result=" + result);
-            Log.e(TAG, "onCreate: index=" + index);
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-
-
-        mHashMap.put("name", "mike");
-
-        mHashMap.put("address", "beijing");
-
-        mHashMap.put("age", "18");
-
-
-        Log.e(TAG, "onCreate: " + mHashMap.size());
 
         final float density = getResources().getDisplayMetrics().density;
 

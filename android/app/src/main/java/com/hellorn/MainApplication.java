@@ -47,11 +47,13 @@ public class MainApplication extends Application implements ReactApplication {
                     new RNFetchBlobPackage(),
                     new RCTCameraPackage());
         }
+
+        @Override
+        protected String getJSMainModuleName() {
+            return "index";
+        }
     };
 
-    protected String getJSMainModuleName() {
-        return "index";
-    }
 
     @Override
     public ReactNativeHost getReactNativeHost() {
@@ -64,10 +66,10 @@ public class MainApplication extends Application implements ReactApplication {
         SoLoader.init(this, /* native exopackage */ false);
 
         Stetho.initializeWithDefaults(this);
-        OkHttpClient mOkHttpClient=new OkHttpClient.Builder()
+        OkHttpClient mOkHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(0, TimeUnit.MICROSECONDS)
-                .readTimeout(0,TimeUnit.MICROSECONDS)
-                .writeTimeout(0,TimeUnit.MICROSECONDS)
+                .readTimeout(0, TimeUnit.MICROSECONDS)
+                .writeTimeout(0, TimeUnit.MICROSECONDS)
                 .cookieJar(new ReactCookieJarContainer())
                 .addInterceptor(new StethoInterceptor())
                 .build();
