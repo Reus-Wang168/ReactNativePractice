@@ -4,11 +4,9 @@
  * @flow
  */
 
-import React from 'react';
-import {AppRegistry} from 'react-native';
+import React from "react";
+import { AppRegistry } from "react-native";
 
+import RootView from "./src/root-view";
 
-import RootView from './src/root-view';
-
-
-AppRegistry.registerComponent('HelloRN', () => RootView);
+AppRegistry.registerComponent("HelloRN", () => RootView);
