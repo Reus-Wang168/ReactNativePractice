@@ -45,6 +45,7 @@ import ToastPage from "./pages/ToastExamplePage";
 import ScrollViewPage from "./pages/ScrollViewPage";
 import "./resource/Images";
 import KeyBoardUsePage from "./pages/KeyBoardUsePage";
+import WebViewExample from "./pages/WebViewExample";
 
 import { ThemeProvider } from "styled-components/native";
 
@@ -75,7 +76,8 @@ const AppNav = StackNavigator(
         LifeCyclePage: { screen: LifeCyclePage },
         ToastPage: { screen: ToastPage },
         ScrollViewPage: { screen: ScrollViewPage },
-        KeyBoardUsePage: { screen: KeyBoardUsePage }
+        KeyBoardUsePage: { screen: KeyBoardUsePage },
+        WebViewExample: { screen: WebViewExample }
     },
     {
         initialRouteName: "Home",
