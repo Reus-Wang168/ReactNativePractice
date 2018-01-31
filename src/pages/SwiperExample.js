@@ -5,7 +5,7 @@
 import React, { Component } from "react";
 import { View, ScrollView, Text } from "react-native";
 import Swiper from "react-native-swiper";
-import Screen from "../common/Screen";
+import Screen from "../common/screen";
 
 export default class SwiperExample extends Component {
     static navigationOptions = ({ navigation }) => ({

@@ -367,19 +367,6 @@ export default class app extends Component {
                                 }}
                             >
                                 <Button
-                                    title="ModalPage"
-                                    onPress={() => {
-                                        this._goToPage("ModalPage");
-                                    }}
-                                />
-                            </View>
-                            <View
-                                style={{
-                                    margin: 10,
-                                    width: Dimensions.get("window").width
-                                }}
-                            >
-                                <Button
                                     title="ToastPage"
                                     onPress={() => {
                                         this._goToPage("ToastPage");

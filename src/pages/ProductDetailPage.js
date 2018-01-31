@@ -17,7 +17,7 @@ import {
 } from "react-native";
 
 import Swiper from "react-native-swiper";
-import Screen from "../common/Screen";
+import Screen from "../common/screen";
 import common from "../common/common";
 
 import CustomScrollView from "react-native-cm-custom-scrollview";

@@ -1,21 +1,25 @@
-import React, {Component} from 'react';
-import {
-   Dimensions,
-   PixelRatio
+import { Dimensions, PixelRatio } from "react-native";
 
-} from 'react-native';
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
+const fontScale = PixelRatio.getFontScale();
+const pixelRatio = PixelRatio.get();
+const defaultPixel = 2;
+const w2 = 750 / defaultPixel;
+const h2 = 1334 / defaultPixel;
+const scale = Math.min(height / h2, width / w2);
 
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
+function px2dp(uiElementPx) {
+    return scale * uiElementPx;
+}
+function fontScaleSize(size: number) {
+    return size * fontScale;
+}
 
-const pxWidth = 1/PixelRatio.get();
-
-
-const object = {
-    width:width,
-    height:height,
-    pxWidth:pxWidth
+export default {
+    width,
+    height,
+    pixelRatio,
+    px2dp,
+    fontScaleSize
 };
-
-export default object;
-

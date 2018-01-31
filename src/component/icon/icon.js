@@ -1,58 +1,45 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-const ColorPropType = require('ColorPropType');
-const invariant = require('fbjs/lib/invariant');
+const ColorPropType = require("ColorPropType");
+const invariant = require("fbjs/lib/invariant");
 
-import Icons from 'react-native-vector-icons/Ionicons';
-import styled from 'styled-components/native';
-
-
+import Icons from "react-native-vector-icons/Ionicons";
+import styled from "styled-components/native";
 
 function getRealSize(props) {
-
     console.log("the props in styled ==" + JSON.stringify(props));
 
-
     switch (props.size) {
-        case 'large':
-            return props.theme.icon.large;
-        case 'middle':
-            return props.theme.icon.middle;
-        case 'small':
-            return props.theme.icon.small;
+        case "large":
+            return 36;
+        case "middle":
+            return 24;
+        case "small":
+            return 12;
         default:
             return props.size;
     }
 }
 
-
 const StyledImage = styled.Image`
-   height:${props => getRealSize(props)};
-   width:${props => getRealSize(props)};
+    height: ${props => getRealSize(props)};
+    width: ${props => getRealSize(props)};
 `;
 
-
 const StyledIcons = styled(Icons)`
-  size:${props => getRealSize(props)}
+    size: ${props => getRealSize(props)};
 `;
 
 export default class Icon extends Component {
-
-
     constructor(props) {
         super(props);
 
-
-
-        console.log("the props in constructor =" + JSON.stringify(props))
-
+        console.log("the props in constructor =" + JSON.stringify(props));
     }
 
-
     static propTypes = {
-
         /**
          *  所使用icon名称
          */
@@ -62,8 +49,8 @@ export default class Icon extends Component {
          * 图标大小，可以使用number或['small,middle,large'],默认为[small]
          */
         size: PropTypes.oneOfType([
-            PropTypes.oneOf(['small', 'middle', 'large']),
-            PropTypes.number,
+            PropTypes.oneOf(["small", "middle", "large"]),
+            PropTypes.number
         ]),
 
         /**
@@ -85,44 +72,49 @@ export default class Icon extends Component {
     };
 
     static defaultProps = {
-        name: '',
-        size: 'middle',
-        color: 'gray',
+        name: "",
+        size: "middle",
+        color: "gray"
     };
 
-
     render() {
+        const { name, size, color } = this.props;
 
-        const {name, size, color} = this.props;
-
-        invariant(
-            typeof name === 'string',
-            'name is required,must be string'
-        );
-
+        invariant(typeof name === "string", "name is required,must be string");
 
         let realSize;
         switch (size) {
-            case 'small':
+            case "small":
                 realSize = 12;
                 break;
-            case 'middle':
+            case "middle":
                 realSize = 24;
                 break;
-            case 'large':
+            case "large":
                 realSize = 36;
                 break;
             default:
                 realSize = size;
         }
 
-
         // console.log("the value of name==" + Images[name]);
         if (Images[name]) {
             return (
-                <StyledImage source={Images[name]} style={this.props.style} size={size}/>)
+                <StyledImage
+                    source={Images[name]}
+                    style={this.props.style}
+                    size={size}
+                />
+            );
         } else {
-            return (<Icons name={name} size={realSize} color={color} style={this.props.style}/>)
+            return (
+                <Icons
+                    name={name}
+                    size={realSize}
+                    color={color}
+                    style={this.props.style}
+                />
+            );
         }
     }
 }

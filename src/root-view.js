@@ -38,7 +38,6 @@ import SwiperExample from "./pages/SwiperExample";
 import FlatListExample from "./pages/FlatListExamplePage";
 import ImgCachePage from "./pages/ImgCachePage";
 import IconLoader from "./pages/IconLoaderPage";
-import ModalPage from "./pages/ModalPage";
 import StyledComponentsPage from "./pages/StyledcomponentsPage";
 import LifeCyclePage from "./pages/LifeCyclePage";
 import ToastPage from "./pages/ToastExamplePage";
@@ -48,8 +47,6 @@ import KeyBoardUsePage from "./pages/KeyBoardUsePage";
 import WebViewExample from "./pages/WebViewExample";
 
 import { ThemeProvider } from "styled-components/native";
-
-import theme from "./theme/theme";
 
 const AppNav = StackNavigator(
     {
@@ -71,7 +68,6 @@ const AppNav = StackNavigator(
         VectorIconsPage: { screen: VectorIcons },
         ImgCachePage: { screen: ImgCachePage },
         IconLoaderPage: { screen: IconLoader },
-        ModalPage: { screen: ModalPage },
         StyledComponentsPage: { screen: StyledComponentsPage },
         LifeCyclePage: { screen: LifeCyclePage },
         ToastPage: { screen: ToastPage },
@@ -125,15 +121,13 @@ const AppNav = StackNavigator(
 export default class extends Component {
     render() {
         return (
-            <ThemeProvider theme={theme}>
-                <View style={{ flex: 1 }}>
-                    <StatusBar
-                        backgroundColor={"#3e77ff"}
-                        barStyle="light-content"
-                    />
-                    <AppNav />
-                </View>
-            </ThemeProvider>
+            <View style={{ flex: 1 }}>
+                <StatusBar
+                    backgroundColor={"#3e77ff"}
+                    barStyle="light-content"
+                />
+                <AppNav />
+            </View>
         );
     }
 }

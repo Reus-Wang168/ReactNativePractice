@@ -2,9 +2,8 @@
  * Created by Rookie on 2017/12/26.
  */
 
-
 const util = {
-    selectSort: function (array) {
+    selectSort: function(array) {
         for (let i = 0; i < array.length - 1; i++) {
             let k = i;
             for (let j = i + 1; j < array.length; j++) {
@@ -19,14 +18,12 @@ const util = {
             }
         }
 
-        console.log("after sort==================")
+        console.log("after sort==================");
         for (let i = 0; i < array.length; i++) {
             console.log(i + "  === " + array[i]);
         }
     },
-    bubbleSort: function (array) {
-
-
+    bubbleSort: function(array) {
         let flag = array.length - 1;
         while (flag > 0) {
             let n = flag;
@@ -41,29 +38,26 @@ const util = {
             }
         }
 
-        console.log("after sort==================")
+        console.log("after sort==================");
         for (let i = 0; i < array.length; i++) {
             console.log(i + "  === " + array[i]);
         }
     },
 
-    insertSort: function (array) {
+    insertSort: function(array) {
         for (let i = 1; i < array.length; i++) {
             let j = i - 1;
             let temp = array[i];
             for (; j >= 0 && array[j] > temp; j--) {
                 array[j + 1] = array[j];
             }
-            array[j + 1] = temp
+            array[j + 1] = temp;
         }
         console.log("after sort==================");
         for (let i = 0; i < array.length; i++) {
             console.log(i + "  === " + array[i]);
         }
     }
-
-
 };
-
 
 export default util;

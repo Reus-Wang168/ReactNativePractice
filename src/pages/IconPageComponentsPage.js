@@ -3,7 +3,7 @@
  */
 
 import styled from "styled-components/native";
-import Screen from "../common/Screen";
+import Screen from "../common/screen";
 
 export const StyledTextInput = styled.TextInput`
     height: 40px;
@@ -15,7 +15,7 @@ export const StyledTextInput = styled.TextInput`
 export const BeautyTextInput = StyledTextInput.extend`
     border: 0;
     font-size: 25px;
-    color: ${props => props.theme.semantics.primaryColor};
+    color: red;
 `;
 
 export const StyledScrollView = styled.ScrollView`
