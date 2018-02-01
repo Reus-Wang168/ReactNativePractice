@@ -8,6 +8,7 @@ import {
     Text,
     FlatList,
     ScrollView,
+    Button,
     TouchableOpacity,
     Dimensions
 } from "react-native";
@@ -62,9 +63,20 @@ class Header extends Component {
             <View style={{ height: 200, backgroundColor: "#03A9F4" }}>
                 <ScrollView contentContainerStyle={{ alignItems: "center" }}>
                     {/*{renderMyView()}*/}
-                    <Text style={{ margin: 30, fontSize: 20, color: "white" }}>
-                        Head
-                    </Text>
+                    <TouchableOpacity onPress={this.props.onSingle}>
+                        <Text
+                            style={{ margin: 30, fontSize: 20, color: "white" }}
+                        >
+                            单列
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={this.props.onDouble}>
+                        <Text
+                            style={{ margin: 30, fontSize: 20, color: "white" }}
+                        >
+                            双列
+                        </Text>
+                    </TouchableOpacity>
                 </ScrollView>
             </View>
         );
@@ -83,6 +95,18 @@ class Footer extends Component {
     }
 }
 
+class EmptyComponent extends Component {
+    render() {
+        return (
+            <View style={{ alignItems: "center" }}>
+                <Text style={{ padding: 10, fontSize: 18, height: 44 }}>
+                    This is Empty Status
+                </Text>
+            </View>
+        );
+    }
+}
+
 class SeperatorComponent extends Component {
     render() {
         return (
@@ -94,16 +118,31 @@ class SeperatorComponent extends Component {
 }
 
 export default class FlatListExample extends Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: navigation.state.params.title
-    });
+    static navigationOptions = ({ navigation }) => {
+        const { state, setParams } = navigation;
+        const isInfo = state.params.mode === "info";
+        const { title } = state.params;
+        return {
+            title: navigation.state.params.title,
+            headerRight: (
+                <Button
+                    style={{ width: 100, marginRight: 5 }}
+                    title={isInfo ? "Done" : "Edit"}
+                    onPress={() =>
+                        setParams({ mode: isInfo ? "none" : "info" })
+                    }
+                />
+            )
+        };
+    };
 
     constructor(props) {
         super(props);
 
         this.state = {
             refreshing: false,
-            num: 1
+            num: 1,
+            datas: data
         };
     }
 
@@ -195,6 +234,22 @@ export default class FlatListExample extends Component {
         }, 2000);
     };
 
+    _onDouble = () => {
+        if (this.state.num != 2) {
+            this.setState({
+                num: 2
+            });
+        }
+    };
+
+    _onSingle = () => {
+        if (this.state.num != 1) {
+            this.setState({
+                num: 1
+            });
+        }
+    };
+
     render() {
         return (
             <View style={{ flex: 1 }}>
@@ -202,11 +257,18 @@ export default class FlatListExample extends Component {
                     numColumns={this.state.num}
                     onRefresh={this._onRefresh}
                     refreshing={this.state.refreshing}
-                    data={data}
+                    data={this.state.datas}
                     key={this.state.num}
                     keyExtractor={this._keyExtractor}
                     renderItem={item => this._renderItem(item)}
-                    ListHeaderComponent={Header}
+                    ListHeaderComponent={
+                        <Header
+                            onSingle={this._onSingle}
+                            onDouble={this._onDouble}
+                        />
+                    }
+                    ListFooterComponent={Footer}
+                    ListEmptyComponent={EmptyComponent}
                     ItemSeparatorComponent={SeperatorComponent}
                     onEndReachedThreshold={0.1}
                     onEndReached={info => this._onEndReached(info)}
