@@ -1,6 +1,6 @@
 {
-    "name": "HelloRN",
-    "version": "0.0.1",
+    "name": "ReactNativePractice",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
         "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -14,6 +14,7 @@
         "react-native-camera": "^0.10.0",
         "react-native-canvas": "^0.1.14",
         "react-native-cm-custom-scrollview": "^1.0.3",
+        "react-native-fetch-blob": "^0.10.8",
         "react-native-image-crop-picker": "^0.18.1",
         "react-native-linear-gradient": "^2.3.0",
         "react-native-material-design-styles": "^0.2.7",
@@ -21,15 +22,15 @@
         "react-native-qrcode-scanner": "^0.0.17",
         "react-native-scrollable-tab-view": "^0.8.0",
         "react-native-swiper": "^1.5.13",
-        "react-native-vector-icons": "^4.4.2",
+        "react-native-vector-icons": "^4.5.0",
         "react-navigation": "^1.0.0-beta.11",
         "styled-components": "^2.2.4"
     },
     "devDependencies": {
-        "babel-jest": "21.0.2",
-        "babel-preset-react-native": "3.0.2",
-        "jest": "21.0.2",
-        "react-test-renderer": "16.0.0-alpha.12"
+        "babel-jest": "22.2.2",
+        "babel-preset-react-native": "4.0.0",
+        "jest": "22.2.2",
+        "react-test-renderer": "16.0.0"
     },
     "jest": {
         "preset": "react-native"
