@@ -46,8 +46,6 @@ import "./resource/Images";
 import KeyBoardUsePage from "./pages/KeyBoardUsePage";
 import WebViewExample from "./pages/WebViewExample";
 
-import { ThemeProvider } from "styled-components/native";
-
 const AppNav = StackNavigator(
     {
         Home: { screen: ExampleIndex },
@@ -118,7 +116,7 @@ const AppNav = StackNavigator(
     }
 );
 
-export default class extends Component {
+export class RootView extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
@@ -131,3 +129,4 @@ export default class extends Component {
         );
     }
 }
+AppRegistry.registerComponent("ReactNativePractice", () => RootView);
