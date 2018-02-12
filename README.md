@@ -9,10 +9,9 @@
 
 ## captures
 
-![](https://github.com/REBOOTERS/ReactNativePractice/blob/b3fe1494a1940bb96feeb914082ea5e24e0e742e/captures/vectoricons.png)
-![](https://github.com/REBOOTERS/ReactNativePractice/blob/b3fe1494a1940bb96feeb914082ea5e24e0e742e/captures/scrollview.gif)
-![](https://github.com/REBOOTERS/ReactNativePractice/blob/b3fe1494a1940bb96feeb914082ea5e24e0e742e/captures/animations.gif)
-![](https://github.com/REBOOTERS/ReactNativePractice/blob/b3fe1494a1940bb96feeb914082ea5e24e0e742e/captures/flatlist.gif)
-![](https://github.com/REBOOTERS/ReactNativePractice/blob/b3fe1494a1940bb96feeb914082ea5e24e0e742e/captures/swipe.gif)
 
-
+<img src="https://github.com/REBOOTERS/ReactNativePractice/blob/fb12c22d63b7b61e4773813c1fb0d5ddfb994e45/captures/vectoricons.png"/>
+<img src="https://github.com/REBOOTERS/ReactNativePractice/blob/fb12c22d63b7b61e4773813c1fb0d5ddfb994e45/captures/scrollview.png"/>
+<img src="https://github.com/REBOOTERS/ReactNativePractice/blob/fb12c22d63b7b61e4773813c1fb0d5ddfb994e45/captures/animations.png"/>
+<img src="https://github.com/REBOOTERS/ReactNativePractice/blob/fb12c22d63b7b61e4773813c1fb0d5ddfb994e45/captures/flatlist.png"/>
+<img src="https://github.com/REBOOTERS/ReactNativePractice/blob/fb12c22d63b7b61e4773813c1fb0d5ddfb994e45/captures/swipe.png"/>
