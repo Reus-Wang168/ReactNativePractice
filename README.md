@@ -8,7 +8,7 @@
 
 扫码二维码体验demo 效果
 
-
+<img src="https://github.com/REBOOTERS/ReactNativePractice/blob/44b3acde93ae3b3bedf877e52754742462f14893/captures/download.png"/>
 
 ## captures
 
@@ -18,11 +18,6 @@
 <div>
 <img width=231 src="https://github.com/REBOOTERS/ReactNativePractice/blob/55ee2201f5118996243c76a7f42457a1fe72167b/captures/scrollview.gif"/>
 <img width=231 src="https://github.com/REBOOTERS/ReactNativePractice/blob/55ee2201f5118996243c76a7f42457a1fe72167b/captures/animations.gif"/>
-</div>
-
-
-
-<div>
 <img width=231 src="https://github.com/REBOOTERS/ReactNativePractice/blob/55ee2201f5118996243c76a7f42457a1fe72167b/captures/flatlist.gif"/>
 <img width=231 src="https://github.com/REBOOTERS/ReactNativePractice/blob/55ee2201f5118996243c76a7f42457a1fe72167b/captures/swipe.gif"/>
 </div>
@@ -31,8 +26,9 @@
 ## how to run 
 
 - git clone https://github.com/REBOOTERS/ReactNativePractice.git
+- cd ReactNativePractice
 - yarn install / npm install 
 - react-native link 
-- react-native run-ios/run-android
+- react-native run-ios/react-native run-android
 
 
