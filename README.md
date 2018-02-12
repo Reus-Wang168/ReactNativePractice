@@ -18,6 +18,8 @@
 <div>
 <img width=231 src="https://github.com/REBOOTERS/ReactNativePractice/blob/55ee2201f5118996243c76a7f42457a1fe72167b/captures/scrollview.gif"/>
 <img width=231 src="https://github.com/REBOOTERS/ReactNativePractice/blob/55ee2201f5118996243c76a7f42457a1fe72167b/captures/animations.gif"/>
+</div>
+<div>
 <img width=231 src="https://github.com/REBOOTERS/ReactNativePractice/blob/55ee2201f5118996243c76a7f42457a1fe72167b/captures/flatlist.gif"/>
 <img width=231 src="https://github.com/REBOOTERS/ReactNativePractice/blob/55ee2201f5118996243c76a7f42457a1fe72167b/captures/swipe.gif"/>
 </div>
