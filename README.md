@@ -7,3 +7,12 @@
 - React Native 与原生组件的通信
 
 
+## captures
+
+![](https://github.com/REBOOTERS/ReactNativePractice/blob/b3fe1494a1940bb96feeb914082ea5e24e0e742e/captures/vectoricons.png)
+![](https://github.com/REBOOTERS/ReactNativePractice/blob/b3fe1494a1940bb96feeb914082ea5e24e0e742e/captures/scrollview.gif)
+![](https://github.com/REBOOTERS/ReactNativePractice/blob/b3fe1494a1940bb96feeb914082ea5e24e0e742e/captures/animations.gif)
+![](https://github.com/REBOOTERS/ReactNativePractice/blob/b3fe1494a1940bb96feeb914082ea5e24e0e742e/captures/flatlist.gif)
+![](https://github.com/REBOOTERS/ReactNativePractice/blob/b3fe1494a1940bb96feeb914082ea5e24e0e742e/captures/swipe.gif)
+
+
