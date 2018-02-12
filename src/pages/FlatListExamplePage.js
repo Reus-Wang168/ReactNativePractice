@@ -200,7 +200,7 @@ export default class FlatListExample extends Component {
                         margin: 5,
                         flexDirection: "column",
                         alignItems: "center",
-                        backgroundColor: "#4CAF50",
+                        backgroundColor: "#70ec86",
                         width: width / 2
                     }}
                 >

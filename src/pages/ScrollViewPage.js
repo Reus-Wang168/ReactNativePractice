@@ -13,6 +13,8 @@ import Icon from "../component/icon/icon";
 
 class Toolbar extends Component {
     render() {
+        let showTitle = this.props.percent >= 0.8;
+
         return (
             <View
                 style={{
@@ -38,6 +40,11 @@ class Toolbar extends Component {
                         style={{ margin: 10 }}
                     />
                 </TouchableOpacity>
+
+                {showTitle ? (
+                    <Text style={{ color: "black", fontSize: 22 }}>Title</Text>
+                ) : null}
+
                 <TouchableOpacity activeOpacity={0.8} onPress={() => {}}>
                     <Icon
                         name={"md-share"}
@@ -59,7 +66,8 @@ export default class ScrollViewPage extends Component {
         super(props);
 
         this.state = {
-            backgroundColor: "rgba(255,255,255,0)"
+            backgroundColor: "rgba(255,255,255,0)",
+            percent: 0.0
         };
     }
 
@@ -83,7 +91,8 @@ export default class ScrollViewPage extends Component {
         console.log("scroll==" + color);
 
         this.setState({
-            backgroundColor: color
+            backgroundColor: color,
+            percent: percent
         });
     };
 
@@ -196,6 +205,7 @@ export default class ScrollViewPage extends Component {
 
                 <Toolbar
                     backgroundColor={this.state.backgroundColor}
+                    percent={this.state.percent}
                     navigation={this.props.navigation}
                 />
             </View>

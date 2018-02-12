@@ -40,7 +40,7 @@ export default class app extends Component {
         this.state = {
             refreshing: false,
             photoUrl:
-                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503569324452&di=291c5ac3f92d1438c2c86d791e9ab56f&imgtype=0&src=http%3A%2F%2Fpic41.nipic.com%2F20140601%2F18681759_143805185000_2.jpg"
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518406239722&di=2cc2ad6fd7bdb78842e4161da3d889dd&imgtype=0&src=http%3A%2F%2Fimg.colabug.com%2F2017%2F10%2Fddec24ea55cf4ff10cab70810845f1dd.png"
         };
 
         this.onPullRelease = this.onPullRelease.bind(this);

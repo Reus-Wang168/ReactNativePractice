@@ -78,7 +78,7 @@ const AppNav = StackNavigator(
         headerMode: "screen",
         navigationOptions: {
             headerStyle: {
-                backgroundColor: "#3e77ff"
+                backgroundColor: "#03A9F4"
             },
             headerTitleStyle: {
                 color: "white"
@@ -121,7 +121,7 @@ export class RootView extends Component {
         return (
             <View style={{ flex: 1 }}>
                 <StatusBar
-                    backgroundColor={"#3e77ff"}
+                    backgroundColor={"#0288D1"}
                     barStyle="light-content"
                 />
                 <AppNav />
