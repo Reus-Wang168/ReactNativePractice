@@ -1,7 +1,7 @@
 @echo off
 
-echo cd android && gradlew assembleRelease
+echo cd android && gradlew clean && gradlew assembleRelease
 
-cd android && gradlew assembleRelease
+cd android && gradlew clean && gradlew assembleRelease
 
 
